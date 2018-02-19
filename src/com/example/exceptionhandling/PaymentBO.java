@@ -9,6 +9,7 @@ public class PaymentBO {
             throw new InvalidDateException("Cheque is valid only for three months");
         }
         return true;
+
     }
 
 
