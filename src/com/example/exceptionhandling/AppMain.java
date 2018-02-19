@@ -34,6 +34,5 @@ public class AppMain {
         } catch (com.example.exceptionhandling.InvalidDateException e) {
             System.out.println(e);
         }
-
     }
 }

@@ -23,6 +23,3 @@ public class ValueComparator implements Comparator<String>{
 }
 
 
-//  12/12/2017    277.00
-//  12/14/2017    101.00
-
