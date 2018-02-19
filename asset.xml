@@ -1,0 +1,17 @@
+<assets>
+    <asset>
+        <id>24577896</id>
+        <name>Computer</name>
+        <price>6000</price>
+    </asset>
+    <asset>
+        <id>24568716</id>
+        <name>Palmtop</name>
+        <price>26000</price>
+    </asset>
+    <asset>
+        <id>29632456</id>
+        <name>Laptop</name>
+        <price>56000</price>
+    </asset>
+</assets>

@@ -1,0 +1,17 @@
+<users>
+    <user>
+        <id>87568</id>
+        <name>Johnson</name>
+        <department>Support</department>
+    </user>
+    <user>
+        <id>95675</id>
+        <name>Bravo</name>
+        <department>Business</department>
+    </user>
+    <user>
+        <id>34675</id>
+        <name>Harry</name>
+        <department>Accounts</department>
+    </user>
+</users>
