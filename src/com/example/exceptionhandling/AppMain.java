@@ -16,10 +16,10 @@ public class AppMain {
         String chequeNumber = scanner.nextLine();
 
         System.out.println("Enter the cheque date :");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date chequeDate = new Date("05/15/2017");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date chequeDate = new Date();
         try {
-            chequeDate = simpleDateFormat.parse(scanner.nextLine());
+            chequeDate = formatter.parse(scanner.nextLine());
         } catch (ParseException e) {
 
             e.printStackTrace();
