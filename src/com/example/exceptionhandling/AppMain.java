@@ -17,10 +17,11 @@ public class AppMain {
 
         System.out.println("Enter the cheque date :");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date chequeDate = new Date();
+        Date chequeDate = new Date("05/15/2017");
         try {
             chequeDate = simpleDateFormat.parse(scanner.nextLine());
         } catch (ParseException e) {
+
             e.printStackTrace();
         }
 
