@@ -38,9 +38,6 @@ public class InvoiceBO {
 
             }
 
-            System.out.println("Data: "+sb.toString());
-
-
             fileInputStream.close();
             writer.flush();
             writer.close();
