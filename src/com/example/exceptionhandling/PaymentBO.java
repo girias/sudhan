@@ -1,16 +1,20 @@
 package com.example.exceptionhandling;
+
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PaymentBO {
 
-    public boolean processPayment(com.example.exceptionhandling.Cheque cheque) throws InvalidDateException {
+    public boolean processPayment(Cheque cheque) throws InvalidDateException {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String chequeDate = sdf.format(cheque.getChequeDate());
 
-        String today="15/05/2017";
-        //System.out.println("Cheque date is"+cheque.getChequeDate());
-        //System.out.println("Today date is"+today);
-        if (formatter.format(cheque.getChequeDate()).compareTo(today) < 0 && formatter.format(cheque.getChequeDate()).compareTo(today) > 0) {
+        String today = sdf.format(new Date());
+        int diffInDays = (int)( (new Date().getTime() - cheque.getChequeDate().getTime())
+                / (1000 * 60 * 60 * 24) );
+
+        if(Math.abs(diffInDays) > 30) {
             throw new InvalidDateException("Cheque is valid only for three months");
         }
         return true;

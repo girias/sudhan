@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class AppMain {
+public class ChequeAppMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the cheque details");
@@ -25,14 +25,14 @@ public class AppMain {
             e.printStackTrace();
         }
 
-        com.example.exceptionhandling.Cheque cheque = new com.example.exceptionhandling.Cheque(bankName,chequeNumber,chequeDate);
-        com.example.exceptionhandling.PaymentBO paymentBO = new com.example.exceptionhandling.PaymentBO();
+        Cheque cheque = new Cheque(bankName,chequeNumber,chequeDate);
+        PaymentBO paymentBO = new PaymentBO();
 
         try {
             if (paymentBO.processPayment(cheque)) {
                 System.out.println("Cheque is sent to clearing house");
             }
-        } catch (com.example.exceptionhandling.InvalidDateException e) {
+        } catch (InvalidDateException e) {
             System.out.println(e);
         }
     }
