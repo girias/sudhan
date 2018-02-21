@@ -1,7 +1,5 @@
 package com.example.streams;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.io.*;
 
 public class InvoiceBO {
@@ -17,7 +15,7 @@ public class InvoiceBO {
 
             while ((strline = bufferedReader.readLine()) != null)
             {
-                String[] data = StringUtils.splitString(strline, ",");
+                String[] data = strline.split(",");
 
                 if (data[6].equalsIgnoreCase("Rejected")){
                     sb.append(data[0]);
