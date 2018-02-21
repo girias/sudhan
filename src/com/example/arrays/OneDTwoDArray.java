@@ -32,7 +32,7 @@ public class OneDTwoDArray {
                 count4 ++;
             } else if(numberOfItems[i] > 0 && numberOfItems[i] <= 1000) {
                 count5 ++;
-            } else if(numberOfItems[i] > 1000 || numberOfItems[i] < 0){
+            } else if (numberOfItems[i] >= 1000 || numberOfItems[i] < 1) {
                 System.out.println("Invalid input");
                 count6 = 0;
                 break;
@@ -40,11 +40,11 @@ public class OneDTwoDArray {
         }
 
         if(count6 == 1) {
-            System.out.println("Number of items between 0 to 25 :" + count1);
-            System.out.println("Number of items between 25 to 50 :" + count2);
-            System.out.println("Number of items between 50 to 100 :" + count3);
-            System.out.println("Number of items between 100 to 500 :" + count4);
-            System.out.println("Number of items between 500 to 1000 :" + count5);
+            System.out.println("The number of items between 0 to 25 :" + count1);
+            System.out.println("The number of items between 25 to 50 :" + count2);
+            System.out.println("The number of items between 50 to 100 :" + count3);
+            System.out.println("The number of items between 100 to 500 :" + count4);
+            System.out.println("The number of items between 500 to 1000 :" + count5);
         }
 
     }
