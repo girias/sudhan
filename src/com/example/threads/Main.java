@@ -44,7 +44,6 @@ public class Main {
             SearchProviderThread ob[] = new SearchProviderThread[items.length];
             for (int i = 0; i < items.length; i++) {
                 String name = toDisplay.get(Integer.parseInt(items[i]) - 1);
-                System.out.println(">>>>>" + name);
                 ob[i] = new SearchProviderThread(name, name, itemList);
                 Thread.sleep(1000);
                 ob[i].start();
