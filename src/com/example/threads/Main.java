@@ -1,4 +1,4 @@
-package com.example.Threads;
+package com.example.threads;
 
 import java.io.BufferedReader;
 import java.io.IOException;

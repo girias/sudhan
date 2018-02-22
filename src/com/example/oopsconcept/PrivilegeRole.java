@@ -1,4 +1,4 @@
-package com.example.OOPSConcept;
+package com.example.oopsconcept;
 
 public class PrivilegeRole {
 

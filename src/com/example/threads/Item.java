@@ -1,4 +1,4 @@
-package com.example.Threads;
+package com.example.threads;
 
 public class Item {
     Long itemId;
