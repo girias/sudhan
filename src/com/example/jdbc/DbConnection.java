@@ -8,8 +8,9 @@ public class DbConnection {
 
     public static Connection getConnection() {
 
+        Connection connection = null;
         try {
-            Connection connection = null;
+
             ResourceBundle rb = ResourceBundle.getBundle("com.example.jdbc.mysql");
             String pass = rb.getString("db.password");
             String user = rb.getString("db.username");
@@ -22,6 +23,6 @@ public class DbConnection {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return null;
+        return connection;
     }
 }
