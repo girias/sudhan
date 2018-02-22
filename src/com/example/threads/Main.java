@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -31,19 +32,14 @@ public class Main {
         itemList.add(new Item(1213L, "Asus Zenfone 3", "kayfast1", 18000.0, 3.5));
         itemList.add(new Item(1214L, "Moto G5 Plus", "deluxe-marken", 14000.0, 3.0));
 
-        List<String> toDisplay = new ArrayList<>();
-        toDisplay.add("Moto G5 Plus");
-        toDisplay.add("Moto M");
-        toDisplay.add("Lenovo P2");
-        toDisplay.add("Lenovo Vibe K5 Note");
-        toDisplay.add("Asus Zenfone");
-        toDisplay.add("Lenovo Vibe K5 Note");
-        toDisplay.add("Samsung Galaxy On5");
+        List<String> toDisplay = new ArrayList<>(Arrays.asList("Moto G5 Plus", "Moto M", "Lenovo P2", "Lenovo Vibe K5 Note", "Asus Zenfone", "Lenovo Vibe K5 Note", "Samsung Galaxy On5"));
+
         try {
             for (int i = 0; i < toDisplay.size(); i++) {
                 System.out.println(i + 1 + " " + toDisplay.get(i));
             }
             System.out.println("Enter all the items you want to purchase:");
+
             String[] items = reader.readLine().split(",");
             SearchProviderThread ob[] = new SearchProviderThread[items.length];
             for (int i = 0; i < items.length; i++) {

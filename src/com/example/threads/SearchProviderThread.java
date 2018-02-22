@@ -31,9 +31,9 @@ public class SearchProviderThread implements Runnable {
     public void run() {
         try {
 
-            for (int i = 0; i < this.itemList.size(); i++) {
-                if (this.itemList.get(i).getName().equals(this.itemName)) {
-                    this.filteredItems.add(new Item(this.itemList.get(i).getItemId(), this.itemList.get(i).getName(), this.itemList.get(i).getProvider(), this.itemList.get(i).getPrice(), this.itemList.get(i).getRating()));
+            for (Item item : itemList) {
+                if (item.getName().equals(this.itemName)) {
+                    this.filteredItems.add(item);
                 }
             }
             //Collections.sort(this.filteredItems, new myCompare());
