@@ -79,6 +79,8 @@ public class MultipleXMLReader {
                     String logAssetId = eElement.getElementsByTagName("assetid").item(0).getTextContent();
 
                     Map<String, String> log_detail = new HashMap<>();
+                    System.out.println(logUserId);
+                    System.out.println(logDate);
                     log_detail.put(logUserId, logDate);
                     logMap.put(logAssetId, log_detail);
 
@@ -92,40 +94,21 @@ public class MultipleXMLReader {
                 System.out.println(logAssetKey);
                 Map<String, String> logDetail = logMap.get(logAssetKey);
                 Set<String> logUserKey = logDetail.keySet();
-                System.out.println(logUserKey);
-
-                Map<String, String> userNameDept = userMap.get(logUserKey);
-//                System.out.println(logAssetKey);
-//                Map<String,String> logDetail = logMap.get(logAssetKey);
-                Set<String> userName = userNameDept.keySet();
-                System.out.println(userName);
-
+                logUserKey.forEach(key -> {
+                    System.out.println(logDetail.get(key));
+                    Map<String,String> userDetail = userMap.get(key);
+                    Set<String> userNameKey = userDetail.keySet();
+                    System.out.println(userNameKey);
+//                    userNameKey.forEach( nameKey -> System.out.println(userDetail.get(nameKey)));
+                });
 
                 Map<String, String> asset_detail = assetMap.get(logAssetKey);
 
                 Set<String> assetDetailKey = asset_detail.keySet();
                 System.out.println(assetDetailKey);
 
-
-//                String userenterkey1 = entry.getValue();
-                //String asset_output = userenterkey + userenterkey1;
 //                System.out.println(userenterkey+" with asset id "+userenterkey1+ " is assigned to " + );
             }
-//            for (Map.Entry<Integer, String> entry : userMap.entrySet())
-//            {
-//                String userenterkey2 = entry.getKey();
-//                String userenterkey3 = entry.getValue();
-//                System.out.println(userenterkey2 +" "+ userenterkey3)
-//
-//            }
-//            for (Map.Entry< Date > entry : logMap.entrySet())
-//            {
-//                String userenterkey4 = entry.getTextContent();
-//                System.out.println(userenterkey4.format("dd-mm-yyyy"));
-//
-//            }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
