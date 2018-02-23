@@ -47,8 +47,6 @@ public class MultipleXMLReader {
                     Map<String, String> asset_detail = new HashMap<>();
                     asset_detail.put(assetName, asset_price);
                     assetMap.put(assetId, asset_detail);
-                    //assetMap.put(asset_id,(assetMap.containsKey(asset_id)));
-
                 }
             }
 
@@ -79,45 +77,32 @@ public class MultipleXMLReader {
                     String logAssetId = eElement.getElementsByTagName("assetid").item(0).getTextContent();
 
                     Map<String, String> log_detail = new HashMap<>();
-//                    System.out.println(logUserId);
-//                    System.out.println(logDate);
                     log_detail.put(logUserId, logDate);
                     logMap.put(logAssetId, log_detail);
 
-//                    logMap.put(Date,(logMap.containsKey(Date)));
                 }
             }
 
             StringBuffer sb = new StringBuffer();
             String userName = null;
             String date = null;
+            String userId = null;
 
             for (Map.Entry<String, Map<String, String>> logEntry : logMap.entrySet()) {
                 String logAssetKey = logEntry.getKey();
-//                System.out.println("Asset ID: " + logAssetKey);
                 Map<String, String> logDetail = logMap.get(logAssetKey);
                 Set<String> logUserKey = logDetail.keySet();
+                userId = logUserKey.toString().replace("[", "").replace("]", "");
                 for (String key : logUserKey) {
                     date = logDetail.get(key);
-//                    System.out.println("Date : " + logDetail.get(key));
                     Map<String,String> userDetail = userMap.get(key);
-                    Set<String> userNameKey = userDetail.keySet();
-                    userName = userDetail.keySet().toString();
-//                    userNameKey.toString().replace("[", "");
-//                    userNameKey.toString().replace("]", "");
-//                    System.out.println("user Name: " + userNameKey);
-//                    userNameKey.forEach( nameKey -> System.out.println(userDetail.get(nameKey)));
+                    userName = userDetail.keySet().toString().replace("[", "").replace("]", "");
                 }
 
                 Map<String, String> asset_detail = assetMap.get(logAssetKey);
 
-                Set<String> assetDetailKey = asset_detail.keySet();
-//                System.out.println(">>>" + assetDetailKey);
-//              Computer with asset id 24577896 is assigned to Johnson with user id 87568 at 03-08-2017
-//                sb.append(asset_detail.keySet() +" with asset id "+logEntry.getKey()+ " is assigned to " + userName +" with user id " + logUserKey + " at " + date);
-//                sb.toString().replaceAll("\\[", "");
-//                sb.toString().replaceAll("\\]", "");
-                System.out.println(asset_detail.keySet() + " with asset id " + logEntry.getKey() + " is assigned to " + userName + " with user id " + logUserKey + " at " + date);
+                String assetName = asset_detail.keySet().toString().replace("[", "").replace("]", "");
+                System.out.println(assetName + " with asset id " + logEntry.getKey() + " is assigned to " + userName + " with user id " + userId + " at " + date);
 
 
             }
