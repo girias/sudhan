@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+            	#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+		</style>
+
+    <script>
+        function calculate(start,end)
+        {
+                var start =parseInt(document.getElementById("start_id").value);
+                var end = parseInt(document.getElementById("end_id").value);
+                var primes = [];
+                var number = (start + 6);
+                number = number -1;
+
+            for(number = start;number<end; number+6)
+            {
+                number = number + 6;
+
+                if(number<end)
+                {
+                    primes.push(number-1);
+                }
+            }
+                document.getElementById("output").value = primes;
+        }
+
+    </script>
+</head>
+
+<body>
+<div id="header">
+    <table style="width:100%">
+        <tr style="width:100%">
+            <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+            </td>
+            <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+            </td>
+            <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<center>
+    <h2>6th Asset Id</h2>
+    <table>
+        <tr>
+            <td>Start range id</td>
+            <td><input type="text" id="start_id"></td>
+        </tr>
+        <tr>
+            <td>End range id</td>
+            <td><input type="text" id="end_id"></td>
+        </tr>
+    <tr>
+        <td></td>
+    <td><button id="calculate" onclick="calculate()">Calculate</button></td>
+    </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td>6th Asset id details<br>in that given range are :</td>
+           <td><textarea id="output" rows="3" cols="21"></textarea></td>
+        </tr>
+
+    </table>
+
+</center>
+
+<!-- fill code here -->
+
+</body>
+
+</html>

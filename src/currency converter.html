@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+				#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+		</style>
+
+    <script>
+        function convert()
+        {
+
+           var drop =document.getElementById("currency").value;
+           var amount1 = document.getElementById("value").value;
+           var calculated;
+           if(drop == "USD-INR")
+            {
+                calculated = amount1 * 62.04;
+                document.getElementById("amount").value = calculated.toFixed(2);
+             }
+             if(drop == "INR-USD")
+            {
+                calculated = amount1 / 62.04;
+                document.getElementById("amount").value = calculated.toFixed(2);
+             }
+             if(drop == "EUR-INR")
+            {
+                calculated = amount1 * 71.01;
+                document.getElementById("amount").value = calculated.toFixed(2);
+             }
+              if(drop == "INR-EUR")
+            {
+                calculated = amount1 / 71.01;
+                document.getElementById("amount").value = calculated.toFixed(2);
+             }
+
+         }
+
+    </script>
+
+
+</head>
+
+<body>
+<div id="header">
+    <table style="width:100%">
+        <tr style="width:100%">
+            <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+            </td>
+            <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+            </td>
+            <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<center>
+    <h2>Multiple Currency Converter</h2>
+    <table>
+        <tr>
+            <td>Select the Conversion Type</td>
+            <td>
+                <select id="currency">
+                    <option value="USD-INR">USD - INR</option>
+                    <option value="INR-USD">INR - USD</option>
+                    <option value="EUR-INR">EUR - INR</option>
+                    <option value="INR-EUR">INR - EUR</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter the value</td>
+            <td><input type="text" id="value"></td>
+            <td><button id="convert" onclick="convert()">Convert</button></td>
+        </tr>
+        <tr>
+            <td>Equivalent amount</td>
+            <td><input type="text" id="amount"></td>
+        </tr>
+    </table>
+
+</center>
+
+<!-- fill code here -->
+
+</body>
+
+</html>

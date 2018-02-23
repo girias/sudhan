@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+				#header {
+				    border: 1px solid lightgrey;
+				    margin : -8px -8px 0;
+				    background-color: lightgrey;
+				 }
+		</style>
+
+    <script>
+                function generate(start,end)
+       {
+
+                var start =parseInt(document.getElementById("from").value);
+                var end = parseInt(document.getElementById("to").value);
+                var primes = [];
+    for(var number = start; number < end; number++)
+    {
+        var primeNumberDividers = []; //there should only be 2: 1 & number
+        for(var divider = 0; divider <= number; divider++)
+        {
+            if(number % divider === 0)
+            {
+                primeNumberDividers.push(divider);
+            }
+        }
+        if(primeNumberDividers.length === 2)
+        {
+            primes.push(number);
+        }
+    }
+    document.getElementById("result").value = primes;
+}
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+<div id="header">
+    <table style="width:100%">
+        <tr style="width:100%">
+            <td style="width:20%">
+                    <span>
+                        <img align="left" src="logo.jpeg" width="120px" height="120px">
+                    </span>
+            </td>
+            <td style="width: 60%;">
+                    <span>
+                        <center>
+                            <h1>DATAX Shipping Company</h1>
+                        </center>
+                    </span>
+            </td>
+            <td style="width: 40%; padding-bottom: 7%;padding-left:5%;">
+                    <span>
+                        <a href="#" id="signup">Sign up</a>
+                        <a href="#" id="login" style="padding-left:30px">Log in</a>
+                    </span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<center>
+    <h2>Prime Number Generator</h2>
+    <table>
+        <tr>
+            <td>From</td>
+            <td><input type="text" id="from"></td>
+        </tr>
+        <tr>
+           <td>To</td>
+            <td><input type="text" id="to"></td>
+        </tr>
+    </table>
+    <button id="generate" onclick="generate()">Generate</button>
+    <br>
+    The prime Numbers are <br>
+    <textarea id="result"></textarea>
+
+</center>
+
+<!-- fill code here -->
+
+</body>
+
+</html>
