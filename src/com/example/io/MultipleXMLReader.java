@@ -94,11 +94,11 @@ public class MultipleXMLReader {
                 Set<String> logUserKey = logDetail.keySet();
                 System.out.println(logUserKey);
 
-//                Map<String, String> userNameDept = userMap.get(logUserKey);
-////                System.out.println(logAssetKey);
-////                Map<String,String> logDetail = logMap.get(logAssetKey);
-//                Set<String> userName = userNameDept.keySet();
-//                System.out.println(userName);
+                Map<String, String> userNameDept = userMap.get(logUserKey);
+//                System.out.println(logAssetKey);
+//                Map<String,String> logDetail = logMap.get(logAssetKey);
+                Set<String> userName = userNameDept.keySet();
+                System.out.println(userName);
 
 
                 Map<String, String> asset_detail = assetMap.get(logAssetKey);
