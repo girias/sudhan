@@ -18,7 +18,7 @@ public class MultipleXMLReader {
     public static void main(String[] args) {
 
         try {
-            File userinputFile = new File("users.xml");
+            File userinputFile = new File("user.xml");
             File assetinputFile = new File("asset.xml");
             File loginputFile = new File("log.xml");
 
@@ -83,7 +83,6 @@ public class MultipleXMLReader {
                 }
             }
 
-            StringBuffer sb = new StringBuffer();
             String userName = null;
             String date = null;
             String userId = null;

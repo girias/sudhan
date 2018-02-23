@@ -14,7 +14,7 @@ public class DomParserDemo2 {
    public static void main(String[] args) {
 
       try {
-         File userinputFile = new File("users.xml");
+         File userinputFile = new File("user.xml");
          File assetinputFile = new File("asset.xml");
          File loginputFile = new File("log.xml");
          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
