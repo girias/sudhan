@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-				#header {
+    			#header {
 				    border: 1px solid lightgrey;
 				    margin : -8px -8px 0;
 				    background-color: lightgrey;
@@ -74,15 +74,25 @@
             <td>From</td>
             <td><input type="text" id="from"></td>
         </tr>
+        <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+        </tr>
         <tr>
-           <td>To</td>
+            <td>To</td>
             <td><input type="text" id="to"></td>
         </tr>
+        <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+        </tr>
+
     </table>
+
     <button id="generate" onclick="generate()">Generate</button>
-    <br>
+    <br><br>
     The prime Numbers are <br>
-    <textarea id="result"></textarea>
+    <br>
+    <textarea>value=""</textarea>
+    <output id="result">
 
 </center>
 
