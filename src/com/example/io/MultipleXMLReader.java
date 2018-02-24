@@ -18,25 +18,25 @@ public class MultipleXMLReader {
     public static void main(String[] args) {
 
         try {
-            File userinputFile = new File("user.xml");
-            File assetinputFile = new File("asset.xml");
-            File loginputFile = new File("log.xml");
+            File userInputFile = new File("user.xml");
+            File assetInputFile = new File("asset.xml");
+            File logInputFile = new File("log.xml");
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document userdoc = dBuilder.parse(userinputFile);
-            Document assetdoc = dBuilder.parse(assetinputFile);
-            Document logdoc = dBuilder.parse(loginputFile);
+            Document userDoc = dBuilder.parse(userInputFile);
+            Document assetDoc = dBuilder.parse(assetInputFile);
+            Document logDoc = dBuilder.parse(logInputFile);
 
-            userdoc.getDocumentElement().normalize();
-            assetdoc.getDocumentElement().normalize();
-            logdoc.getDocumentElement().normalize();
+            userDoc.getDocumentElement().normalize();
+            assetDoc.getDocumentElement().normalize();
+            logDoc.getDocumentElement().normalize();
 
             Map<String, Map<String, String>> userMap = new LinkedHashMap<>();
             Map<String, Map<String, String>> assetMap = new LinkedHashMap<>();
             Map<String, Map<String, String>> logMap = new LinkedHashMap<>();
 
-            NodeList aList = assetdoc.getElementsByTagName("asset");
+            NodeList aList = assetDoc.getElementsByTagName("asset");
             for (int temp = 0; temp < aList.getLength(); temp++) {
                 Node aNode = aList.item(temp);
                 if (aNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -51,7 +51,7 @@ public class MultipleXMLReader {
             }
 
 
-            NodeList uList = userdoc.getElementsByTagName("user");
+            NodeList uList = userDoc.getElementsByTagName("user");
             for (int temp = 0; temp < uList.getLength(); temp++) {
                 Node uNode = uList.item(temp);
                 if (uNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -66,7 +66,7 @@ public class MultipleXMLReader {
                 }
             }
 
-            NodeList lList = logdoc.getElementsByTagName("log");
+            NodeList lList = logDoc.getElementsByTagName("log");
             for (int temp = 0; temp < lList.getLength(); temp++) {
                 Node lNode = lList.item(temp);
                 if (lNode.getNodeType() == Node.ELEMENT_NODE) {
