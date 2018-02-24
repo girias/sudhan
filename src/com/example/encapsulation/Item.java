@@ -1,4 +1,4 @@
-package com.example.Encapsulation;
+package com.example.encapsulation;
 
 public class Item {
     private int id;

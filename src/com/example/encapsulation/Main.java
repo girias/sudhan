@@ -1,7 +1,7 @@
-package com.example.Encapsulation;
+package com.example.encapsulation;
 
-import java.text.*;
-import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
 
 
 public class Main {

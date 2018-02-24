@@ -1,6 +1,6 @@
-package com.example.Encapsulation;
+package com.example.encapsulation;
 
-import java.util.*;
+import java.util.Date;
 
 public class Invoice {
     private int id;

@@ -1,4 +1,4 @@
-package com.example.Encapsulation;
+package com.example.encapsulation;
 
 public class InvoiceLine {
     private	Item item;
