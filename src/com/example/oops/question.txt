@@ -1,0 +1,277 @@
+Scrum Master, Team Member, Product Owner
+
+Let us consider a simple agile Scrum Model where we have plenty of stakeholders. All the stakeholders in the model are Users but are classified as Srum Master/ Team Member/ProductOwner, that is there are 3 Roles for Users and each role has different privileges. A Scrum Master is privileged to create a Requirement, Assign the Requirement and Count total number of Requirement. A Team Member is privileged to List the requirements, which is assigned to him/her. Finally a Product Owner is privileged to Allocate the budget and time for Requirement plan.
+
+All the 3 Users can have their common details like username, password, name, role etc., and get those details as input. Write a program using Inheritance that will perform all the above said privileges based on the Role.
+
+There are three role for user and those users have different type of privileges:
+No	Role Name	Privileges
+1.	Scrum Master	Create the Requirement, Assign the Requirement, Count total number of Requirement.
+2.	Team Member	List the requirements, which is assigned to him/her.
+3.	Product Owner	Allocate the budget for Requirement plan , Allocate the time for plan.
+
+Problem Specifications:
+[Note :Strictly adhere to the object oriented specifications given as a part of the problem statement.Use the same class names, attribute names and method names.]
+
+Create a class named User with the following protected member variables / attributes.
+private String userName
+private String password
+private String name
+private String role
+Include appropriate getters, setters and constructors.
+Include 3 argument constructor with argument order  User(String userName, String password,String name,  String role) .
+And also have only one method,
+No	Method Name	Method Description
+1	void display(BufferedReader br,Requirement[] requirement,User[] user)	In this method, it check the user role and show the functionality of particular user role, and it will invokes the various methods in Team member, Scrum master and requirement class.
+
+Create a class named Requirement and include the following methods
+private Integer id
+private String description
+private User createdBy
+private User assignedTo
+private Integer planTime
+private Float budget
+private Boolean requiementStatus
+ Include appropriate getters, setters and constructors.
+Include 7 argument constructor with argument order  Requirement(Integer id,String description, User createdBy, User assignedTo, Integer planTime, Float budget, Boolean requiementStatus).
+
+Create a class named ScrumMaster, which extende User class with the following methods.
+No	Method Name	Method Description
+1	public void createRequirements(String detail,Requirement[] requirement)	In this method, Create the requirement and store in to requirement object array.
+2	public int countTotalRequirements(Requirement[] requirement)	In this method, which returns the total number of requirement in requirement object array.
+3	Boolean assignreqmts(BufferedReader br,Requirement[] requirement,User user[])	In this method, assign the requriement to user using user name of users.If it assigned then return true, else return false.
+
+Create a class named TeamMember, which extende User class with the following methods.
+No	Method Name	Method Description
+1	void myRequriements(Requirement[] requirement,String userName)	In this method, which display the list of requirements, which is assigned to the particular user using user name.
+Use the following format for display the list of requirement
+System.out.format("%-15s %s\n","Id","Description").
+
+Create a class named ProductOwner, which extends User class with the following methods.
+No	Method Name	Method Description
+1	Boolean allocateBudget(String budgetDetail,Requirement[] requirement)	In this method, the product owner can allocate the budget for the particular requirement. budgetDetail is combination of course id and budget, which is seperated by comma(,). If it allocate budget successfully then it returns true, else return false.
+2	Boolean allocatePlanTime(String planTimeDetail,Requirement[]requirement)	In this method, the product owner can allocate the time for the particular requirement. allocatePlanTime is combination of course id and time, which is seperated bt comma(,). If it allocate time successfully then it returns true, else return false.
+Use the following format for list the requirement.
+System.out.format("%-15s %-15s %-15s %s\n", "Id","Description","Budget","Time").
+
+Create a Main class to test the above 5 classes. In the main method, create an array of User instances / objects , an array of Requirement instances. Invoke the display methods in theUser class and test them.
+
+Problem Specification :
+The main method is only used for getting the user data input and only validate the user name and password, if it is true then call display method in user class via valid user object.
+The display method is used to call the various function in various class depends up on the user role.
+
+Input and Output Format:
+Refer sample input and output for formatting specifications.
+All text in bold corresponds to input and the rest corresponds to output.
+
+Sample Input and Output :
+
+Enter number of user :
+3
+Enter user 1 detail :
+John,john123,John123,SM
+Enter user 2 detail :
+PitBull,pit305,Pit@305,TM
+Enter user 3 detail :
+Jesica,Jesica445,J445es,PO
+1. Login
+2. Exit
+Enter your choice :
+1
+Enter the user name :
+john123
+Enter the password :
+John123
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+2
+The total number of requirement is :0
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+1
+Enter the number of requirement to create :
+3
+Enter the id and description 1:
+1223,Code Arena
+Enter the id and description 2:
+1224,Hacker Rank
+Enter the id and description 3:
+1225,Code Arena
+Requirement created successfully
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+2
+The total number of requirement is :3
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+3
+1223. Code Arena
+1224. Hacker Rank
+1225. Code Arena
+Enter the requirement id and user name :
+1224,pit305
+Assigned successfully
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+3
+1223. Code Arena
+1224. Hacker Rank
+1225. Code Arena
+Enter the requirement id and user name :
+1225,pit3055
+Assign failed
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+3
+1223. Code Arena
+1224. Hacker Rank
+1225. Code Arena
+Enter the requirement id and user name :
+1225,pit305
+Assigned successfully
+1. Create BackLog
+2. Count Requirements
+3. Assign Requirements
+4. Logout
+Enter your choice :
+4
+1. Login
+2. Exit
+Enter your choice :
+1
+Enter the user name :
+pit305
+Enter the password :
+Pit@305
+1. Display requirement list
+2. Logout
+Enter your choice :
+1
+Id              Description
+1224            Hacker Rank
+1225            Code Arena
+1. Display requirement list
+2. Logout
+Enter your choice :
+2
+1. Login
+2. Exit
+Enter your choice :
+1
+Enter the user name :
+Jesica445
+Enter the password :
+J445es
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+1
+Id              Description     Budget          Time
+1223            Code Arena      0.00            0
+1224            Hacker Rank     0.00            0
+1225            Code Arena      0.00            0
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+1
+Id              Description     Budget          Time
+1223            Code Arena      0.00            0
+1224            Hacker Rank     0.00            0
+1225            Code Arena      0.00            0
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+2
+Enter the id and budget :
+1223,10000
+Budget assigned successfully
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+3
+Enter the id and plan time :
+1222,12
+No record found
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+3
+Enter the id and plan time :
+1223,12
+Time assigned successfully
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+1
+Id              Description     Budget          Time
+1223            Code Arena      10000.00        12
+1224            Hacker Rank     0.00            0
+1225            Code Arena      0.00            0
+1. List reqiurements
+2. Allocate budget
+3. Allocate plan time
+4. Logout
+Enter your choice :
+4
+1. Login
+2. Exit
+Enter your choice :
+2
+
+Sample Input and Output 2:
+
+Enter number of user :
+1
+Enter user 1 detail :
+Mathew,mathew,mathew123,TM
+1. Login
+2. Exit
+Enter your choice :
+1
+Enter the user name :
+mathew
+Enter the password :
+mathew123
+1. Display requirement list
+2. Logout
+Enter your choice :
+1
+No records found
+1. Display requirement list
+2. Logout
+Enter your choice :
+2
+1. Login
+2. Exit
+Enter your choice :
+2
