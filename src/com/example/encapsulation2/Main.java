@@ -45,6 +45,7 @@ public class Main {
 
         Invoice[] invoiceArray = inputData.toArray(new Invoice[inputData.size()]);
         System.out.println("Customer details with status cleared Invoices :");
+        System.out.format("%-15s %-15s %-15s", "Name", "State", "Country");
         InvoiceBO invoiceBO = new InvoiceBO();
         invoiceBO.displayUserDetailsByStatus("Cleared", invoiceArray);
 
