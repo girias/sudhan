@@ -3,6 +3,7 @@ package com.example.encapsulation2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Main {
         // fill code here
         List<Invoice> inputData = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter the invoice" + n + 1 + "details :");
+            System.out.println("Enter the invoice" + (i + 1) + "details :");
             String[] input = buf.readLine().split(",");
             Invoice invoice = new Invoice(new User(input[0], input[1], input[2]), Double.parseDouble(input[3]), input[4], input[5]);
             inputData.add(invoice);
@@ -29,7 +30,12 @@ public class Main {
         System.out.println("\nEnter the Invoice creator name :");
         String customerName = buf.readLine();
         System.out.println("The total invoice value :");
-        System.out.println(invoiceBO.getTotalInvoiceValue(customerName, invoiceArray));
+        Double sum = invoiceBO.getTotalInvoiceValue(customerName, invoiceArray);
+        if (sum > 0.0) {
+            System.out.print(new DecimalFormat("#0.00").format(sum));
+        } else {
+            System.out.println("No invoice available");
+        }
 
 
     }
