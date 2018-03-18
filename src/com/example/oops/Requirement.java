@@ -75,6 +75,18 @@ public class Requirement {
         this.requiementStatus = requiementStatus;
     }
 
+    @Override
+    public String toString() {
+        return "Requirement{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", createdBy=" + createdBy +
+                ", assignedTo=" + assignedTo +
+                ", planTime=" + planTime +
+                ", budget=" + budget +
+                ", requiementStatus=" + requiementStatus +
+                '}';
+    }
 }
 
 

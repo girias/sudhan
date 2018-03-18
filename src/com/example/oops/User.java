@@ -87,15 +87,37 @@ public class User {
                     case 3:
                         //fill code here
                         for (Requirement temp : requirement) {
-                            System.out.format("%-15s %s\n", temp.getId(), temp.getDescription());
+                            System.out.format("%-15s. %s\n", temp.getId(), temp.getDescription());
                         }
                         System.out.println("Enter the requirement id and user name :");
-                        String[] reqId = br.readLine().split(",");
-                        for (Requirement temp : requirement) {
-                            if (temp.getId() == Integer.parseInt(reqId[0]))
+                        String[] reqIdName = br.readLine().split(",");
+//                        System.out.println("reqIdName: " + reqIdName[0]);
+//                        System.out.println("reqIdName: " + reqIdName[1]);
+//                        System.out.println("user: " + user[0]);
+//                        System.out.println("user: " + user[1]);
+//                        System.out.println("user: " + user[2]);
+                        for (int k = 0; k < requirement.length; k++) {
+                            if (requirement[k].getId() == Integer.parseInt(reqIdName[0])) {
                                 //Get the user from user array and map to requirement
-                                temp.setAssignedTo(user[0]);
+                                for (User u : user) {
+                                    if (u.getUserName().equalsIgnoreCase(reqIdName[1]))
+                                        requirement[k].setAssignedTo(u);
+                                }
+
+                                System.out.println("Assigned successfully");
+                            }
                         }
+//                        for (Requirement temp : requirement) {
+//                            if (temp.getId() == Integer.parseInt(reqIdName[0])) {
+//                                //Get the user from user array and map to requirement
+//                                for(User u : user){
+//                                    if(u.getUserName().equalsIgnoreCase(reqIdName[1]))
+//                                        temp.setAssignedTo(u);
+//                                }
+//
+//                                System.out.println("Assigned successfully");
+//                            }
+//                        }
                         break;
 
                 }
@@ -107,6 +129,20 @@ public class User {
                 System.out.println("1. Display requirement list\n2. Logout\nEnter your choice :");
                 int teamMemberChoice = Integer.parseInt(br.readLine());
                 //fill code here.
+                switch (teamMemberChoice) {
+                    case 1:
+                        for (Requirement requirement1 : requirement) {
+                            System.out.println(requirement1);
+                        }
+                        for (Requirement req : requirement) {
+                            if (req.getAssignedTo().getRole().equalsIgnoreCase("TM"))
+                                System.out.format("%-15s. %s\n", req.getId(), req.getDescription());
+
+                        }
+                        break;
+                    case 2:
+                        break;
+                }
 
             }
         } else if (role.equals("PO")) {
