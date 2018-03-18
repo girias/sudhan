@@ -67,60 +67,58 @@ public class User {
                     case 1:
                         //fill code here.
                         System.out.println("Enter the number of requirement to create :");
+                        User tempUser = null;
+                        for (User u : user) {
+                            if (u.role.equalsIgnoreCase("SM")) {
+                                tempUser = u;
+                            }
+                        }
+
                         int numberOfRequirements = Integer.parseInt(br.readLine());
-                        requirement = new Requirement[numberOfRequirements];
-//                        Requirement[] req = new Requirement[numberOfRequirements];
+
                         for (int k = 1; k <= numberOfRequirements; k++) {
                             System.out.println("Enter the id and description " + k + ":");
                             String[] require = br.readLine().split(",");
-
-                            User tempUser = new User(user[0].getName(), user[0].getUserName(), user[0].getPassword(), user[0].getRole());
-                            requirement[k - 1] = new Requirement(Integer.parseInt(require[0]), require[1], tempUser, tempUser, 0, 0f, true);
+                            requirement[k - 1] = new Requirement(Integer.parseInt(require[0]), require[1], tempUser, null, 0, 0f, true);
 
                         }
                         System.out.println("Requirement created successfully");
                         break;
                     case 2:
                         //fill code here.
-                        System.out.println("The total number of requirement is :" + requirement.length);
+                        size = 0;
+                        for (int counter = 0; counter < requirement.length; counter++) {
+                            if (requirement[counter] != null)
+                                size++;
+                        }
+                        System.out.println("The total number of requirement is :" + size);
                         break;
                     case 3:
                         //fill code here
-                        for (Requirement temp : requirement) {
-                            System.out.format("%-15s. %s\n", temp.getId(), temp.getDescription());
+                        for (i = 0; i < size; i++) {
+                            System.out.format("%-15s %s\n", requirement[i].getId(), requirement[i].getDescription());
                         }
                         System.out.println("Enter the requirement id and user name :");
                         String[] reqIdName = br.readLine().split(",");
-//                        System.out.println("reqIdName: " + reqIdName[0]);
-//                        System.out.println("reqIdName: " + reqIdName[1]);
-//                        System.out.println("user: " + user[0]);
-//                        System.out.println("user: " + user[1]);
-//                        System.out.println("user: " + user[2]);
-                        for (int k = 0; k < requirement.length; k++) {
-                            if (requirement[k].getId() == Integer.parseInt(reqIdName[0])) {
+
+                        for (int k = 0; k < size; k++) {
+                            if (requirement[k].getId().equals(Integer.parseInt(reqIdName[0]))) {
                                 //Get the user from user array and map to requirement
                                 for (User u : user) {
-                                    if (u.getUserName().equalsIgnoreCase(reqIdName[1]))
+                                    if (u.getUserName().equalsIgnoreCase(reqIdName[1])) {
                                         requirement[k].setAssignedTo(u);
+                                    }
                                 }
 
                                 System.out.println("Assigned successfully");
                             }
                         }
-//                        for (Requirement temp : requirement) {
-//                            if (temp.getId() == Integer.parseInt(reqIdName[0])) {
-//                                //Get the user from user array and map to requirement
-//                                for(User u : user){
-//                                    if(u.getUserName().equalsIgnoreCase(reqIdName[1]))
-//                                        temp.setAssignedTo(u);
-//                                }
-//
-//                                System.out.println("Assigned successfully");
-//                            }
-//                        }
-                        break;
 
+                        break;
+                    default:
+                        break;
                 }
+
                 if (choice == 4)
                     break;
             }
@@ -131,23 +129,30 @@ public class User {
                 //fill code here.
                 switch (teamMemberChoice) {
                     case 1:
-                        for (Requirement requirement1 : requirement) {
-                            System.out.println(requirement1);
+                        if (size > 0) {
+                            System.out.format("%-15s. %s\n", "Id", "Description");
+                            for (i = 0; i < size; i++) {
+                                if (requirement[i].getAssignedTo() != null && requirement[i].getAssignedTo().getRole().equalsIgnoreCase("TM")) {
+                                    System.out.format("%-15s. %s\n", requirement[i].getId(), requirement[i].getDescription());
+                                }
+                            }
+                        } else {
+                            System.out.println("No records found");
                         }
-                        for (Requirement req : requirement) {
-                            if (req.getAssignedTo().getRole().equalsIgnoreCase("TM"))
-                                System.out.format("%-15s. %s\n", req.getId(), req.getDescription());
 
-                        }
                         break;
                     case 2:
                         break;
+                    default:
+                        break;
                 }
+                if (teamMemberChoice == 2)
+                    break;
 
             }
         } else if (role.equals("PO")) {
             while (true) {
-                System.out.println("1. List reqiurements\n2. Allocate budget\n3. Allocate plan time\n4. Logout\nEnter your choice :");
+                System.out.println("1. List requirements\n2. Allocate budget\n3. Allocate plan time\n4. Logout\nEnter your choice :");
                 int productOwnerChoice = Integer.parseInt(br.readLine());
                 size = 0;
                 for (i = 0; i < requirement.length; i++) {
@@ -161,18 +166,35 @@ public class User {
                     else {
                         System.out.format("%-15s %-15s %-15s %s\n", "Id", "Description", "Budget", "Time");
                         //fill code here.
+                        for (i = 0; i < size; i++) {
+                            System.out.format("%-15s %-15s %-15s %s\n", requirement[i].getId(), requirement[i].getDescription(), requirement[i].getBudget(), requirement[i].getPlanTime());
+                        }
                     }
                 } else if (productOwnerChoice == 2) {
                     System.out.println("Enter the id and budget :");
-                    String budgetDetail = br.readLine();
+                    String[] budgetDetail = br.readLine().split(",");
                     //fill code here.
+
+                    for (int k = 0; k < size; k++) {
+                        if (requirement[k].getId().equals(Integer.parseInt(budgetDetail[0]))) {
+                            requirement[k].setBudget(Float.parseFloat(budgetDetail[1]));
+                            System.out.println("Budget assigned successfully");
+                        }
+                    }
+
                 } else if (productOwnerChoice == 3) {
                     System.out.println("Enter the id and plan time :");
-                    String planTimeDetail = br.readLine();
+                    String[] planTimeDetail = br.readLine().split(",");
                     //fill code here.
+
+                    for (int k = 0; k < size; k++) {
+                        if (requirement[k].getId().equals(Integer.parseInt(planTimeDetail[0]))) {
+                            requirement[k].setPlanTime(Integer.parseInt(planTimeDetail[1]));
+                            System.out.println("Time assigned successfully");
+                        }
+                    }
                 } else if (productOwnerChoice == 4)
                     break;
-
 
             }
         }
