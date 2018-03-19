@@ -96,6 +96,12 @@ public class User {
                         break;
                     case 3:
                         //fill code here
+                        size = 0;
+                        for (int counter = 0; counter < requirement.length; counter++) {
+                            if (requirement[counter] != null)
+                                size++;
+                        }
+
                         for (i = 0; i < size; i++) {
                             System.out.format("%s. %s\n", requirement[i].getId(), requirement[i].getDescription());
                         }
