@@ -1,5 +1,6 @@
 package com.example.oops;
 
+
 import java.io.BufferedReader;
 
 public class User {
@@ -47,16 +48,16 @@ public class User {
         this.role = role;
     }
 
-    public void display(BufferedReader br, Requirement[] requirement, User[] user) throws Exception {
+    public void display(BufferedReader br, Requirement[] requirement, User[] user, User currentUser) throws Exception {
         int size = 0, i, choice;
 
-        System.out.println(requirement.length);
+        //System.out.println(requirement.length);
 
         for (i = 0; i < requirement.length; i++) {
             if (requirement[i] != null)
                 size++;
         }
-        System.out.println(size);
+        // System.out.println(size);
 
         if (role.equals("SM")) {
 
@@ -96,7 +97,7 @@ public class User {
                     case 3:
                         //fill code here
                         for (i = 0; i < size; i++) {
-                            System.out.format("%-15s %s\n", requirement[i].getId(), requirement[i].getDescription());
+                            System.out.format("%s. %s\n", requirement[i].getId(), requirement[i].getDescription());
                         }
                         System.out.println("Enter the requirement id and user name :");
                         String[] reqIdName = br.readLine().split(",");
@@ -104,13 +105,18 @@ public class User {
                         for (int k = 0; k < size; k++) {
                             if (requirement[k].getId().equals(Integer.parseInt(reqIdName[0]))) {
                                 //Get the user from user array and map to requirement
+                                boolean userFound = false;
                                 for (User u : user) {
                                     if (u.getUserName().equalsIgnoreCase(reqIdName[1])) {
                                         requirement[k].setAssignedTo(u);
+                                        userFound = true;
                                     }
                                 }
-
-                                System.out.println("Assigned successfully");
+                                if (userFound) {
+                                    System.out.println("Assigned successfully");
+                                } else {
+                                    System.out.println("Assign failed");
+                                }
                             }
                         }
 
@@ -129,14 +135,22 @@ public class User {
                 //fill code here.
                 switch (teamMemberChoice) {
                     case 1:
+                        boolean onetime = true;
                         if (size > 0) {
-                            System.out.format("%-15s. %s\n", "Id", "Description");
+                            boolean isAvailable = false;
                             for (i = 0; i < size; i++) {
-                                if (requirement[i].getAssignedTo() != null && requirement[i].getAssignedTo().getRole().equalsIgnoreCase("TM")) {
-                                    System.out.format("%-15s. %s\n", requirement[i].getId(), requirement[i].getDescription());
+                                if (requirement[i].getAssignedTo() != null && requirement[i].getAssignedTo().getUserName().equalsIgnoreCase(currentUser.getUserName())) {
+                                    isAvailable = true;
+                                    if (isAvailable && onetime) {
+                                        System.out.format("%-15s %s\n", "Id", "Description");
+                                        isAvailable = false;
+                                        onetime = false;
+                                    }
+                                    System.out.format("%-15s %s\n", requirement[i].getId(), requirement[i].getDescription());
                                 }
                             }
-                        } else {
+                        }
+                        if (onetime) {
                             System.out.println("No records found");
                         }
 
@@ -152,7 +166,7 @@ public class User {
             }
         } else if (role.equals("PO")) {
             while (true) {
-                System.out.println("1. List requirements\n2. Allocate budget\n3. Allocate plan time\n4. Logout\nEnter your choice :");
+                System.out.println("1. List reqiurements\n2. Allocate budget\n3. Allocate plan time\n4. Logout\nEnter your choice :");
                 int productOwnerChoice = Integer.parseInt(br.readLine());
                 size = 0;
                 for (i = 0; i < requirement.length; i++) {
@@ -167,31 +181,43 @@ public class User {
                         System.out.format("%-15s %-15s %-15s %s\n", "Id", "Description", "Budget", "Time");
                         //fill code here.
                         for (i = 0; i < size; i++) {
-                            System.out.format("%-15s %-15s %-15s %s\n", requirement[i].getId(), requirement[i].getDescription(), requirement[i].getBudget(), requirement[i].getPlanTime());
+                            System.out.format("%-15s %-15s %-15.2f %s\n", requirement[i].getId(), requirement[i].getDescription(), requirement[i].getBudget(), requirement[i].getPlanTime());
                         }
                     }
                 } else if (productOwnerChoice == 2) {
                     System.out.println("Enter the id and budget :");
                     String[] budgetDetail = br.readLine().split(",");
                     //fill code here.
-
+                    boolean recordFound = false;
                     for (int k = 0; k < size; k++) {
                         if (requirement[k].getId().equals(Integer.parseInt(budgetDetail[0]))) {
+                            recordFound = true;
                             requirement[k].setBudget(Float.parseFloat(budgetDetail[1]));
-                            System.out.println("Budget assigned successfully");
                         }
+
+                    }
+                    if (recordFound) {
+                        System.out.println("Budget assigned successfully");
+                    } else {
+                        System.out.println("No record found");
                     }
 
                 } else if (productOwnerChoice == 3) {
                     System.out.println("Enter the id and plan time :");
                     String[] planTimeDetail = br.readLine().split(",");
                     //fill code here.
-
+                    boolean timeFound = false;
                     for (int k = 0; k < size; k++) {
                         if (requirement[k].getId().equals(Integer.parseInt(planTimeDetail[0]))) {
+                            timeFound = true;
                             requirement[k].setPlanTime(Integer.parseInt(planTimeDetail[1]));
-                            System.out.println("Time assigned successfully");
                         }
+
+                    }
+                    if (timeFound) {
+                        System.out.println("Time assigned successfully");
+                    } else {
+                        System.out.println("No record found");
                     }
                 } else if (productOwnerChoice == 4)
                     break;

@@ -33,7 +33,7 @@ public class Main {
             String password = br.readLine();
             for (User u : user) {
                 if (u.getUserName().equals(userName) && u.getPassword().equals(password)) {
-                    u.display(br, requirement, user);
+                    u.display(br, requirement, user, u);
                 }
             }
         }
