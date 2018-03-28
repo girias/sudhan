@@ -1,0 +1,48 @@
+Authentication
+
+United Payment Interface (UPI) is a single window payment system and payments can be done from any device. Plenty of devices like wallets, mobile and browser are available through which payments are done. Each of these devices has different authentication rules, a browser should comply to authentication using username & password, mobile should comply to the authentication rules using a fingerprint image and a wallet using a CVV number.
+
+
+
+Write a program using the concept of Method Overloading to perform Authentication for the various payment devices.
+
+
+Create a class named  Account with the following private member variables / attributes
+String username
+String password
+int cvv
+byte[] fingerPrint
+1)Include appropriate getters and setters.
+2)Include 4 argument constructor with argument order username,password,cvv,fingerprint
+
+Include following methods in Account class
+No	Method Name	Method Description
+1	 Boolean authentication(String username,String password)	This method will check for the account. If the username and password is valid return true else return false.
+2	Boolean authentication(String username,int cvv)   	This method will check for the account. If the username and cvv is valid return true else return false.
+3	void  authentication(byte[] fingerPrint)	This method will check for the account. If the finger print is valid return true else return false.
+Create a Main class to test the above class.
+
+[Note :Strictly adhere to the object oriented specifications given as a part of the problem statement.Use the same class names, attribute names and method names.]
+[ All text in bold corresponds to input and the rest corresponds to output.]
+
+Sample Input and Output 1 :
+Enter the login mode
+1)Browser
+2)Wallet
+3)Mobile
+1
+Enter the username
+vicky
+Enter the password
+vicky123
+Authentication successful
+
+Sample Input and Output 2 :
+Enter the login mode
+1)Browser
+2)Wallet
+3)Mobile
+3
+Enter the fingerprint
+1100
+Authentication failed
