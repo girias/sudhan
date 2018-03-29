@@ -1,6 +1,9 @@
 Authentication
 
-United Payment Interface (UPI) is a single window payment system and payments can be done from any device. Plenty of devices like wallets, mobile and browser are available through which payments are done. Each of these devices has different authentication rules, a browser should comply to authentication using username & password, mobile should comply to the authentication rules using a fingerprint image and a wallet using a CVV number.
+United Payment Interface (UPI) is a single window payment system and payments can be done from any device.
+Plenty of devices like wallets, mobile and browser are available through which payments are done.
+Each of these devices has different authentication rules, a browser should comply to authentication using username & password,
+mobile should comply to the authentication rules using a fingerprint image and a wallet using a CVV number.
 
 
 
