@@ -2,8 +2,13 @@ package com.groovy.GroovySBA_ShhopManagement.src.com.sbashop
 
 class InvoiceManagement {
 
-    String readFileContent(String filename) {
-        return new File(filename)
+    /**
+     * Reads file and returns file content
+     * @param filename
+     * @return
+     */
+    static String readFileContent(String filename) {
+        return new File(filename).getText('UTF-8')
     }
 
     /**
@@ -11,8 +16,21 @@ class InvoiceManagement {
      * @param xmlString
      * @return
      */
-    List<Customer> generateCustomerList(String xmlString) {
-        return null
+    static List<Customer> generateCustomerList(String xmlString) {
+//        print xmlString
+        def customers = new XmlParser().parseText(xmlString)
+
+        List<Customer> customerList = new ArrayList<>()
+        Customer customer = new Customer()
+
+        customers.customer.findAll { c ->
+            customer.setId(Long.parseLong(c.@id.value[0].toString()))
+            customer.setName(c.name[0].toString())
+            customer.setUsername(c.username[0].toString())
+            customer.setPassword(c.password[0].toString())
+            customerList.add(customer)
+        }
+        return customerList
     }
 
     /**
@@ -20,8 +38,22 @@ class InvoiceManagement {
      * @param xmlString
      * @return
      */
-    List<Invoice> generateInvoiceList(String xmlString) {
-        return null
+    static List<Invoice> generateInvoiceList(String xmlString) {
+        def invoices = new XmlParser().parseText(xmlString)
+
+        List<Invoice> invoiceList = new ArrayList<>()
+        Invoice invoice = new Invoice()
+
+        invoices.invoice.findAll { inv ->
+            invoice.setNumber(Long.parseLong(inv.@number.value[0].toString()))
+            invoice.setStatus(inv.status[0].toString())
+            invoice.setBalance(Double.parseDouble(inv.balance[0].text()))
+            Customer customer = new Customer()
+            customer.setId(Long.parseLong(inv.customerid[0].text()))
+            invoice.setCustomer(customer)
+            invoiceList.add(invoice)
+        }
+        return invoiceList
     }
 
     Boolean validateCustomer(String username, String password) {

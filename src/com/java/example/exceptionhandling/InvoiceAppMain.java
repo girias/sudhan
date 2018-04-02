@@ -23,15 +23,15 @@ public class InvoiceAppMain {
         CreditCard creditCard = new CreditCard(creditCardNumber, creditLimit);
 
         System.out.println("Do you want to process invoice payment?(yes/no)");
-        if(scanner.nextLine().equalsIgnoreCase("yes")) {
-            System.out.println("Enter the amount :");
-            Double amount = scanner.nextDouble();
-            try {
-                InvoiceBO.processPayment(invoice, creditCard, amount);
-            } catch (CreditLimitExcption ex){
-                System.out.println(ex);
-            }
-
-        }
+//        if(scanner.nextLine().equalsIgnoreCase("yes")) {
+//            System.out.println("Enter the amount :");
+//            Double amount = scanner.nextDouble();
+//            try {
+//                InvoiceBO.processPayment(invoice, creditCard, amount);
+//            } catch (CreditLimitExcption ex){
+//                System.out.println(ex);
+//            }
+//
+//        }
     }
 }

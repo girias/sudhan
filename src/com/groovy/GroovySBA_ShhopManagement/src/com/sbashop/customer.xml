@@ -4,4 +4,14 @@
         <username>john</username>
         <password>johnromero</password>
     </customer>
+    <customer id='2'>
+        <name>Giri AlkondanSubbiah</name>
+        <username>Giri</username>
+        <password>AlkondanSubbiah</password>
+    </customer>
+    <customer id='3'>
+        <name>Sudhan AlkondanManickavasagom</name>
+        <username>Sudhan</username>
+        <password>AlkondanManickavasagom</password>
+    </customer>
 </customers>
