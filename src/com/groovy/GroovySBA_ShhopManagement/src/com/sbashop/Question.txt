@@ -1,8 +1,13 @@
 Shop Door Shopping Company
 
-Shop Door Company is a successful brand in the e-commerce vertical, known for their customer friendly services. The Company Management wanted to go an extra mile in their service offerings by designing a simple Payment Management System wherein their Customers can make their pending payments effortlessly. The application is menu driven where the Customers are capable of listing the pending invoices and make payment for a specific invoice.
+Shop Door Company is a successful brand in the e-commerce vertical, known for their customer friendly services.
+The Company Management wanted to go an extra mile in their service offerings by designing a simple Payment Management System
+wherein their Customers can make their pending payments effortlessly. The application is menu driven where the Customers are
+capable of listing the pending invoices and make payment for a specific invoice.
 
-The application should have a login page where the Customers can login with a valid username and password (Username is strictly case sensitive). If the Customer gives any invalid credentials, display necessary error messages. If a Customer's login is successful, the menu displays 3 operations as given below:
+The application should have a login page where the Customers can login with a valid username and password
+(Username is strictly case sensitive). If the Customer gives any invalid credentials, display necessary error messages.
+If a Customer's login is successful, the menu displays 3 operations as given below:
 
 1) List all pending invoices
 2) Make payment to an invoice

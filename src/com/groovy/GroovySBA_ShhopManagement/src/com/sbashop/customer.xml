@@ -1,0 +1,7 @@
+<customers>
+    <customer id='1'>
+        <name>John Romero</name>
+        <username>john</username>
+        <password>johnromero</password>
+    </customer>
+</customers>
