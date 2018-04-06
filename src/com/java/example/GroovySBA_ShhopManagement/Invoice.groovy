@@ -1,4 +1,4 @@
-package com.example.GroovySBA_ShhopManagement;
+package com.java.example.GroovySBA_ShhopManagement
 
 class Invoice {
 

@@ -1,4 +1,4 @@
-package com.example.GroovySBA_ShhopManagement;
+package com.java.example.GroovySBA_ShhopManagement
 
 class InvoiceManagement {
     public static def customerList = []
@@ -94,7 +94,7 @@ class InvoiceManagement {
                 }
 
             } else {
-                return false;
+                return false
             }
         }
     }

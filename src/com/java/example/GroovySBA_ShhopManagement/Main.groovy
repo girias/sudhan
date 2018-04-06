@@ -1,4 +1,4 @@
-package com.example.GroovySBA_ShhopManagement;
+package com.java.example.GroovySBA_ShhopManagement
 
 class Main {
 
@@ -7,10 +7,10 @@ class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
         InvoiceManagement i = new InvoiceManagement()
 
-        String userFileName = "src\\customer.xml";
+        String userFileName = "src\\customer.xml"
         String customerfileContent = i.readFileContent(userFileName)
         i.generateCustomerList(customerfileContent)
-        userFileName = "src\\invoice.xml";
+        userFileName = "src\\invoice.xml"
         String invoiceFileContent = i.readFileContent(userFileName)
         i.generateInvoiceList(invoiceFileContent)
         def flag = false
@@ -26,15 +26,15 @@ class Main {
             isUserExist = i.validateCustomer(username, password)
 
             if (!isUserExist) {
-                println("try again");
+                println("try again")
                 flag = false
             } else {
                 customer = i.obtainCustomer(username)
                 flag = true
                 while (true) {
-                    println("1.List all Pending invoice\n2.Make payment\n3.exit");
+                    println("1.List all Pending invoice\n2.Make payment\n3.exit")
                     Integer choice = br.readLine().toInteger()
-                    int balance;
+                    int balance
                     if (choice == 1) {
                         println "Invoice number - Balance"
                         if (customer != null) {
