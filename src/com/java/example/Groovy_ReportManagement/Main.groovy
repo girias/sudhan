@@ -25,13 +25,13 @@ class Main {
 
         Integer choice = new Integer(br.readLine())
 
-        ReportManagement.loadAssets(ReportManagement.readFileContent("asset.xml"))
+        ReportManagement.loadAssets(ReportManagement.readFileContent("C:\\Users\\Nigi\\IdeaProjects\\sudhan\\src\\com\\java\\example\\Groovy_ReportManagement\\asset.xml"))
 
-        ReportManagement.loadCategories(ReportManagement.readFileContent("category.xml"))
+        ReportManagement.loadCategories(ReportManagement.readFileContent("C:\\Users\\Nigi\\IdeaProjects\\sudhan\\src\\com\\java\\example\\Groovy_ReportManagement\\category.xml"))
 
-        ReportManagement.loadUsers(ReportManagement.readFileContent("user.xml"))
+        ReportManagement.loadUsers(ReportManagement.readFileContent("C:\\Users\\Nigi\\IdeaProjects\\sudhan\\src\\com\\java\\example\\Groovy_ReportManagement\\user.xml"))
 
-        ReportManagement.loadLog(new File("log.csv"))
+        ReportManagement.loadLog(new File("C:\\Users\\Nigi\\IdeaProjects\\sudhan\\src\\com\\java\\example\\Groovy_ReportManagement\\log.csv"))
 
         switch (choice) {
 
