@@ -7,10 +7,10 @@ class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
         InvoiceManagement i = new InvoiceManagement()
 
-        String userFileName = "src\\customer.xml"
+        String userFileName = "C:\\Users\\Nigi\\IdeaProjects\\sudhan\\src\\com\\java\\example\\GroovySBA_ShhopManagement\\customer.xml"
         String customerfileContent = i.readFileContent(userFileName)
         i.generateCustomerList(customerfileContent)
-        userFileName = "src\\invoice.xml"
+        userFileName = "C:\\Users\\Nigi\\IdeaProjects\\sudhan\\src\\com\\java\\example\\GroovySBA_ShhopManagement\\invoices.xml"
         String invoiceFileContent = i.readFileContent(userFileName)
         i.generateInvoiceList(invoiceFileContent)
         def flag = false
