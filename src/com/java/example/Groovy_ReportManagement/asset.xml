@@ -1,0 +1,45 @@
+<assets>
+    <asset>
+        <number>8734</number>
+        <name>Television</name>
+        <categoryId>101</categoryId>
+        <price>25000</price>
+    </asset>
+    <asset>
+        <number>7346</number>
+        <name>Projector</name>
+        <categoryId>101</categoryId>
+        <price>4500</price>
+    </asset>
+    <asset>
+        <number>8746</number>
+        <name>Computer</name>
+        <categoryId>101</categoryId>
+        <price>12000</price>
+    </asset>
+    <asset>
+        <number>7462</number>
+        <name>Monitor</name>
+        <categoryId>102</categoryId>
+        <price>5200</price>
+    </asset>
+    <asset>
+        <number>2746</number>
+        <name>CPU</name>
+        <categoryId>102</categoryId>
+        <price>15800</price>
+    </asset>
+    <asset>
+        <number>1293</number>
+        <name>Laptop</name>
+        <categoryId>103</categoryId>
+        <price>18500</price>
+    </asset>
+    <asset>
+        <number>6345</number>
+        <name>RAM</name>
+        <categoryId>103</categoryId>
+        <price>3900</price>
+    </asset>
+</assets>
+
