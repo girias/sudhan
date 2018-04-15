@@ -1,0 +1,160 @@
+Shop Door Shopping Company
+
+Shop Door Company is a successful brand in the e-commerce vertical, known for their customer friendly services.
+The Company Management wanted to go an extra mile in their service offerings by designing a simple Payment Management System
+wherein their Customers can make their pending payments effortlessly. The application is menu driven where the Customers are
+capable of listing the pending invoices and make payment for a specific invoice.
+
+The application should have a login page where the Customers can login with a valid username and password
+(Username is strictly case sensitive). If the Customer gives any invalid credentials, display necessary error messages.
+If a Customer's login is successful, the menu displays 3 operations as given below:
+
+1) List all pending invoices
+2) Make payment to an invoice
+3). Exit
+
+For 'List all pending invoices' Operation:
+
+1) List all the pending invoices of the logged in user.
+
+2) For every pending invoice, display the pending amount for payment.
+
+
+
+For 'Make payment to an invoice' Operation:
+
+1) User has to input a pending invoice number. If the number that the User gives is invalid, display a message “Invalid com.java.example.Invoice number”. Loop the process until the User gives a valid pending invoice number.
+2) Username should be case sensitive
+3) If the User gives a valid number, read the payable amount from the User and update the balance amount (This amount is calculated by subtracting the payable amount from the original balance amount).
+4) If the balance amount is 0, that is, if the invoice amount is fully paid, the invoice should not be displayed in the pending list and the invoice status is changed to completed.
+
+For 'Exit' Operation, terminate the application.
+
+Problem Specifications:
+
+Create a class named Customer, which contains the following member variables.
+
+
+Data Type	Attribute Name	Description
+Long	id	user id
+String	name	name of the user
+String	username	username of the user
+String	password	password of the user
+Include appropriate Constructor, getter and setter.
+
+Create a class named com.java.example.Invoice, which contains the following member variables.
+Data Type	Attribute Name	Description
+Long	number	invoice number
+String	status	current invoice status
+Double	balance	remaining balance on the invoice
+Customer	customer	customer object for a particular invoice
+Include appropriate Constructor, getter and setter.
+
+Create a class named InvoiceManagement, which contains following methods.
+No	Class Name	Method Name	Input Parameter	Output Parameter
+1	InvoiceManagement	readFileContent(filename) - This method is used to read the content from the file and return that file content as string.	String filename	String
+2	InvoiceManagement	generateCustomerList(xmlString) - This method is used to read that xmlString(xml file content) and generate the Customer list from that xmlString. The method returns the Customer list.	String xmlString	-
+3	InvoiceManagement	generateInvoiceList(xmlString) - This method is used to read that xmlString(xml file content) and generate the invoice list from that xmlString. The method returns the invoice list.	String xmlString	-
+4	InvoiceManagement	Boolean validateCustomer(username,password) - This method is used to check if the Customer gives a valid username and password, If valid, then method returns true, otherwise returns false.	String username,
+String password	Boolean
+5	InvoiceManagement	obtainCustomer(username) - This method is used to find the user using the given username and returns the user object.	String username	User
+6	InvoiceManagement	List<com.java.example.Invoice> listAllPending(customer) - This method is used to return the list of invoices which are pending for a particular customer.	customer List<com.java.example.Invoice>
+7	InvoiceManagement	com.java.example.Invoice obtainInvoiceById(invoicenumber) - This method is used to find a specific invoice using the given invoice number from the invoice list. If the specific invoice is available, then method returns that invoice object, otherwise returns null.	Long invoicenumber	com.java.example.Invoice
+8	InvoiceManagement	Boolean makePayment(invoice,amount,customer) - This method lets a Customer to make payment against a particular pending invoice. If the payment is successful, then method returns true, otherwise returns false.	invoice,
+Double amount,
+customer	Boolean
+9	InvoiceManagement	obtainInvoiceForPayment - This method is used to get all the pending invoice for the particular customer.	invoiceNumber,customer	com.java.example.Invoice
+
+Create the groovy file named as Main. In Main file create the object for the InvoiceManagement and access the functions.
+
+Two xml input files are, customer.xml and invoice.xml
+
+customer.xml
+
+<customers>
+<customer id='1'>
+<name>John Romero</name>
+<username>john</username>
+<password>johnromero</password>
+<customer>
+</customer>
+
+
+invoice.xml
+
+<invoices>
+<invoice number='26354'>
+<customerid>1</customerid>
+<status>pending</status>
+<balance>34000</balance>
+</invoice>
+<invoices>
+
+[All text in bold corresponds to input and the rest corresponds to output]
+
+Input and Output Format:
+Refer to the sample input and output for formatting details
+
+Sample Input and Output:
+
+Enter the username
+john
+Enter the password
+john
+try again
+Enter the username
+john
+Enter the password
+romero
+try again
+Enter the username
+john
+Enter the password
+johnromero
+1.List all Pending invoice
+2.Make payment
+3.exit
+1
+26354-34000
+26355-15000
+26356-10000
+1.List all Pending invoice
+2.Make payment
+3.exit
+2
+Enter the invoice number
+59668
+invalid number
+1.List all Pending invoice
+2.Make payment
+3.exit
+2
+Enter the invoice number
+26355
+Enter the amount
+12000
+1.List all Pending invoice
+2.Make payment
+3.exit
+1
+26354-34000
+26355-3000
+26356-10000
+1.List all Pending invoice
+2.Make payment
+3.exit
+2
+Enter the invoice number
+26354
+Enter the amount
+34000
+1.List all Pending invoice
+2.Make payment
+3.exit
+1
+26355-3000
+26356-10000
+1.List all Pending invoice
+2.Make payment
+3.exit
+3

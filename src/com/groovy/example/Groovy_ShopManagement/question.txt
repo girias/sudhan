@@ -1,0 +1,120 @@
+The Shop Door is an e-commerce solution who have started a company to offer online
+shopping services, the team is just starting to implement their online shopping application,
+which will receive a shopping list from the customer and deliver the items in the shopping
+list. For the start, they start with few modules of the application. The tech team has planned
+to implement this application, help them writing codes for login validation, making a
+purchase and displaying the purchase details.
+a) Initially, the application reads the username from the user, if an invalid username is
+given, the application loops until a valid username is given.
+b) Once a valid username is given, the application prompts for the item to be purchased, the
+system displays “Invalid item number” until a valid item number is given and then the
+quantity of the item is read from the user.
+c) Once the user completes giving the list of items to be purchased, the list of items along
+with the item number, item name and the cost is displayed with the total cost of the
+shopping list.
+d) When the user selects Exit, the application terminates.
+Note:
+1) The list of registered users is available in an xml file named user.xml
+2) The list of items is available in an xml file named item.xml
+Problem Specifications
+Create a class named User, which contains the following member variables.
+
+Data Type Attribute Name Description
+Long id user id
+String name name of the user
+String username username of the user
+String password password of the user
+String role role of the user
+Include appropriate Constructor, getter and setter.
+Create a class named Item, which contains the following member variables.
+Data Type Attribute Name Description
+Long id item id
+String name name of the item
+Double unitPrice price of the item
+Include appropriate Constructor, getter and setter.
+
+Create a class named OrderLine, which contains the following member variables.
+Data Type Attribute Name Description
+Item item item in the order
+Integer quantity quantity of the item
+Double price price of the item
+Include appropriate Constructor, getter and setter.
+Create a class named PurchaseOrder, which contains the following member variables.
+Data Type Attribute Name Description
+Long orderNo order number of the purchase
+String status status of the purchase
+List&lt;OrderLine&gt; orderLineList
+Include appropriate Constructor, getter and setter.
+Create a class named ShopDoorManagement, which contains following methods.
+S.No Class Name Method Name Input Parameter Output Parameter
+1 ShopDoorManagement readFileContent - his method is used to read the content from the
+file and return that file content as string. String filename String
+2 ShopDoorManagement loadAllUsers - This method is used to read that xmlString(xml file
+content) and generate the User list from that xmlString. String xmlString void
+3 ShopDoorManagement loadAllItems - This method is used to read that xmlString(xml file
+content) and generate the Item list from that xmlString. String xmlString void
+4 ShopDoorManagement validateUser - This method is used to check if the User gives a
+valid username and password, If valid, then method returns true, otherwise returns false.
+String username,
+String password Boolean
+5 ShopDoorManagement obtainItem - This method is used to find the item by item id and
+return the item, otherwise returns null Long itemId Item
+6 ShopDoorManagement computeItemPrice - This method computes the each item price
+based on the number of quantity purchased Item item,Integer quantity Double
+7 ShopDoorManagement computeTotalPrice-This method computes the total price of the
+items purchased PurchaseOrder purchaseOrder Double
+8 ShopDoorManagement validateItem - This method is used to return the item, which is
+based on the parameterised item id. otherwise returns null. Long userId Item
+
+Input and Output Format:
+
+Refer to the sample input and output for formatting details.
+Sample Input &amp; Output 1:
+Login:
+Username:
+buttler
+Password:
+butt
+Username or password is wrong!.try again..
+Username:
+buttler
+Password:
+buttler
+Item id:
+1
+Quantity: 
+3
+Do you want to add one more item?(Yes/No)
+Yes
+Item id:
+6
+Item with 6 not found.
+Do you want to add one more item?(Yes/No)
+Yes
+Item id:
+3
+Quantity:
+5
+Do you want to add one more item?(Yes/No)
+Yes
+Item id:
+2
+Quantity:
+1
+Do you want to add one more item?(Yes/No)
+Yes
+Item id:
+4
+Quantity:
+3
+Do you want to add one more item?(Yes/No)
+
+No
+Order created successfully.
+Purchase order 1
+Order No : 1 | Status : Created
+Name : mobile | Quantity : 3 | Price : 19500.0
+Name : TV | Quantity : 5 | Price : 30000.0
+Name : laptop | Quantity : 1 | Price : 65000.0
+Name : Home Theater | Quantity : 3 | Price : 15000.0
+Total Purchase order: 129500.0
