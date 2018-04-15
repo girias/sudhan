@@ -1,7 +1,0 @@
-<invoices>
-    <invoice number='26354'>
-        <customerid>1</customerid>
-        <status>pending</status>
-        <balance>34000</balance>
-    </invoice>
-</invoices>

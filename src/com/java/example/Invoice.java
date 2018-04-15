@@ -1,3 +1,5 @@
+package com.java.example;
+
 import java.util.Date;
 
 public class Invoice {

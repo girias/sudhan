@@ -39,8 +39,8 @@ public class Main {
         }
         details.setInvoiceLine(invoiceLine);
         invoiceLine = details.getInvoiceLine();
-        //System.out.println("Invoice Id      Item Name        Quantity        Price           Total Amount");
-        System.out.format("%-15s %-15s  %-15s %-15s %-15s\n","Invoice Id","Item Name","Quantity","Price","Total Amount");
+        //System.out.println("com.java.example.Invoice Id      Item Name        Quantity        Price           Total Amount");
+        System.out.format("%-15s %-15s  %-15s %-15s %-15s\n", "com.java.example.Invoice Id", "Item Name", "Quantity", "Price", "Total Amount");
         for(int i=0;i<details.getInvoiceLine().length;i++){
             System.out.println(details.getId()+"      "+invoiceLine[i].getItem().getName()+"      "+invoiceLine[i].getQuantity()+"      "+invoiceLine[i].getItem().getPrice()+"      "+invoiceLine[i].getAmount()+"      ");
         }

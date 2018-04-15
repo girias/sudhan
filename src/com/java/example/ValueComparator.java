@@ -1,4 +1,4 @@
-package com.example.exceptionhandling;
+package com.java.example;
 
 import java.util.Comparator;
 import java.util.Map;

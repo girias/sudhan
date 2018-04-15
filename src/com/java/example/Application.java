@@ -1,6 +1,11 @@
+package com.java.example;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Application {
 
@@ -15,7 +20,7 @@ public class Application {
                 System.out.println("Customer Name:");
                 String custName = scanner.nextLine();
 
-                System.out.println("Invoice date:");
+                System.out.println("com.java.example.Invoice date:");
                 Date invoiceDate = new SimpleDateFormat("dd/MM/yyyy").parse(scanner.nextLine());
 
 
