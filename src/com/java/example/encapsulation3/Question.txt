@@ -1,10 +1,10 @@
 Discount on item
 
 Write a program using One to Many Relationship to calculate the discount percentage on a particular item and print the new invoice amount.
-Item and invoice line details are pre defined. (Refer Code Template. Item details are prepopulated and Invoice details are prepopulated).
+Item and invoice line details are pre defined. (Refer Code Template. Item details are prepopulated and com.java.example.Invoice details are prepopulated).
 Select one item and give percentage of discount.
-Display the Invoice details before giving discount and after giving discount.
-One to Many Relationship that is used here is 'Invoice has many Invoice Line, One Invoice Line belongs to a Invoice'.
+Display the com.java.example.Invoice details before giving discount and after giving discount.
+One to Many Relationship that is used here is 'com.java.example.Invoice has many com.java.example.Invoice Line, One com.java.example.Invoice Line belongs to a com.java.example.Invoice'.
 
 1. Create a class named Item with the following private member variables / attributes
 "	Integer id
@@ -16,20 +16,20 @@ One to Many Relationship that is used here is 'Invoice has many Invoice Line, On
 "	Integer price
 "	Integer quantity
 "	Item item
-"	Invoice invoice
-     Create a three argument constuctor  public InvoiceLine(Item item,int quantity, Invoice invoice)
+"	com.java.example.Invoice invoice
+     Create a three argument constuctor  public InvoiceLine(Item item,int quantity, com.java.example.Invoice invoice)
      Include appropriate getters and setters
-3. Create a class called Invoice with the following private member variables
+3. Create a class called com.java.example.Invoice with the following private member variables
 "	String number
 "	Integer total
 "	String customer
 "	InvoiceLine[] invoiceLine
-      Create a two argument constuctor as public Invoice(String number, String customer)
+      Create a two argument constuctor as public com.java.example.Invoice(String number, String customer)
       Include appropriate getters and setters
 4. Create a class named InvoiceBO with the following public methods.
 
 S.NO	Method Name	Method Description
-1	public int modifyItemPrice(Invoice invoice, Item item, Integer percentageOfDiscount)	This method is used to find the discounted total amount for the given item with the given discount percentage and return the discounted total amount.
+1	public int modifyItemPrice(com.java.example.Invoice invoice, Item item, Integer percentageOfDiscount)	This method is used to find the discounted total amount for the given item with the given discount percentage and return the discounted total amount.
 
 5. Create a Main class to test the above classes
 
@@ -54,7 +54,7 @@ Enter the item id for discount :
 1
 Enter the discount percentage :
 10
-Invoice details before giving discount :
+com.java.example.Invoice details before giving discount :
 Item ID               Item Name                   Price                     Quantity                      Amount
 1                            Mobile phone              8500                      2                                       17000
 3                            Camera                          9000                      1                                       9000

@@ -22,7 +22,7 @@ import java.util.List;
  * Customer details with status cleared Invoices :
  * Name            State           Country
  * Julie           Mexico          USA
- * Enter the Invoice creator name :
+ * Enter the com.java.example.Invoice creator name :
  * Viji
  * The total invoice value :
  * No invoice available
@@ -49,7 +49,7 @@ public class Main {
         InvoiceBO invoiceBO = new InvoiceBO();
         invoiceBO.displayUserDetailsByStatus("Cleared", invoiceArray);
 
-        System.out.println("\nEnter the Invoice creator name :");
+        System.out.println("\nEnter the com.java.example.Invoice creator name :");
         String customerName = buf.readLine();
         System.out.println("The total invoice value :");
         Double sum = invoiceBO.getTotalInvoiceValue(customerName, invoiceArray);

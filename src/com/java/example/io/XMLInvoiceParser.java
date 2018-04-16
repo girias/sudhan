@@ -9,7 +9,7 @@ public class XMLInvoiceParser {
     public static void main(String[] args) {
         try{
 
-            File file = new File("Invoice.xml");
+            File file = new File("com.java.example.Invoice.xml");
 
             JAXBContext jContext = JAXBContext.newInstance(Invoices.class);
 

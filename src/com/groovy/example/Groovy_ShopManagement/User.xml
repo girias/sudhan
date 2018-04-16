@@ -1,0 +1,26 @@
+<users>
+    <user id='26354'>
+        <name>John Romero</name>
+        <username>john</username>
+        <password>johnromero</password>
+        <role>Customer</role>
+    </user>
+    <user id='12345'>
+        <name>Buttler</name>
+        <username>buttler</username>
+        <password>buttler</password>
+        <role>Customer</role>
+    </user>
+    <user id='26354'>
+        <name>Marc Boucher</name>
+        <username>marcboucher</username>
+        <password>marcboucher</password>
+        <role>Stock Manager</role>
+    </user>
+    <user id='34567'>
+        <name>Victoria</name>
+        <username>victoria</username>
+        <password>victoria</password>
+        <role>Sock Manager</role>
+    </user>
+</users>
