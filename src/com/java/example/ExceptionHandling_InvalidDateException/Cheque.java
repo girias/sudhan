@@ -1,4 +1,4 @@
-package com.java.example.exceptionhandling;
+package com.java.example.ExceptionHandling_InvalidDateException;
 
 import java.util.Date;
 
