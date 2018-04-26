@@ -5,8 +5,9 @@ class InvoiceManagement {
     public static def invoiceList = []
 
 //This method is used to read the content from the file and return that file content as string.
-    String readFileContent(String filename) {
-        def xmlString = new File(filename).text
+    def readFileContent(filename) {
+        File file = new File(filename)
+        String xmlString = file.text
         return xmlString
     }
 

@@ -11,24 +11,19 @@ class Log {
         this.action = action
         this.date = date
     }
-
     Asset getAsset() {
 
         return asset
     }
-
     void setAsset(Asset asset) {
         this.asset = asset
     }
-
     User getUser() {
         return user
     }
-
     void setUser(User user) {
         this.user = user
     }
-
     String getAction() {
         return action
     }

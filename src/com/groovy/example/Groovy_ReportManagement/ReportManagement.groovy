@@ -4,128 +4,54 @@ class ReportManagement {
 
 
     public static List<Category> categoryData = new ArrayList<>()
-
     public static List<Asset> assetData = new ArrayList<>()
-
     public static List<User> userData = new ArrayList<>()
-
     public static List<Log> listLog = new ArrayList<>()
-
-
     static String readFileContent(String filename) {
-
         String fileContents = new File(filename).text
-
         return fileContents
-
-
     }
-
-
     static User validateUserById(Long userId) {
-
         User user = null
-
-
-
         user = userData.find {
-
-
             it.getId() == userId
-
         }
-
-
-
-
-
         return user
-
     }
-
-
     static List<User> loadUsers(String xmlString) {
-
-
         def user = new XmlParser().parseText(xmlString)
-
         user.user.findAll { p ->
-
             userData.add(new User(Long.parseLong(p.id[0].text()), p.name[0].text(), p.department[0].text()))
-
         }
-
-
     }
-
-
     static void loadAssets(String xmlString) {
-
-
         def asset = new XmlParser().parseText(xmlString)
-
         asset.asset.findAll { p ->
-
             assetData.add(new Asset(Long.parseLong(p.number[0].text()), p.name[0].text(), p.categoryId[0].text(), Double.parseDouble(p.price[0].text()), ""))
-
         }
-
-
     }
-
-
     static List<Category> loadCategories(String xmlString) {
-
         def category = new XmlParser().parseText(xmlString)
-
         category.category.findAll { p ->
-
             Long id = Long.parseLong(p.id[0].text())
-
             String name = p.name[0].text()
-
             categoryData.add(new Category(id, name))
-
         }
-
     }
-
-
     static File createFileObject(String fileName) {
-
-
         return new File(fileName)
-
     }
-
-
     static void loadLog(File file) {
-
-
         file.eachLine { line ->
-
             if (line != null) {
-
                 listLog.add(line)
-
             }
-
         }
-
-
     }
-
-
     static List<Asset> findAssetsOfCategory(Long categoryId) {
-
-
         List<Asset> data = new ArrayList<>()
-
         assetData.each {
-
-
             if (it.getCategory().equalsIgnoreCase(String.valueOf(categoryId))) {
-
                 data.add(it)
 
             }
@@ -243,9 +169,6 @@ class ReportManagement {
 
 
         }
-
-        //println(sortedData)
-
         returnedData.each { r ->
 
 
