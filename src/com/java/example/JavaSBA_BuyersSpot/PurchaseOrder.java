@@ -5,13 +5,13 @@ import java.util.List;
 
 public class PurchaseOrder {
     private Long id;
-    private date orderDate;
-    private date createdDate;
+    private Date orderDate;
+    private Date createdDate;
     private Integer numberOfItems;
     private Double totalAmount;
     private String customerName;
     private String mobileNumber;
-    private List<orderLine> orderLineList;
+    private List<OrderLine> orderLineList;
 
     public PurchaseOrder() {
         super();
@@ -47,28 +47,28 @@ public class PurchaseOrder {
     /**
      * @return the orderDate
      */
-    public date getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
     /**
      * @param orderDate the orderDate to set
      */
-    public void setOrderDate(date orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
     /**
      * @return the createdDate
      */
-    public date getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
     /**
      * @param createdDate the createdDate to set
      */
-    public void setCreatedDate(date createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -131,14 +131,14 @@ public class PurchaseOrder {
     /**
      * @return the orderLineList
      */
-    public List<orderLine> getOrderLineList() {
+    public List<OrderLine> getOrderLineList() {
         return orderLineList;
     }
 
     /**
      * @param orderLineList the orderLineList to set
      */
-    public void setOrderLineList(List<orderLine> orderLineList) {
+    public void setOrderLineList(List<OrderLine> orderLineList) {
         this.orderLineList = orderLineList;
     }
 

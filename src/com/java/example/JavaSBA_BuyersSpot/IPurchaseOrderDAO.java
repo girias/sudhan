@@ -1,6 +1,6 @@
 package com.java.example.JavaSBA_BuyersSpot;
 
-public class IPurchaseOrderDAO {
-    public void createPurchaseorder(Purchaseorder purchaseOrderObj);
+public interface IPurchaseOrderDAO {
+    void createPurchaseorder(PurchaseOrder purchaseOrderObj);
 }
 

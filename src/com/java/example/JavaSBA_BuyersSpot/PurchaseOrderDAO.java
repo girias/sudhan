@@ -1,7 +1,9 @@
 package com.java.example.JavaSBA_BuyersSpot;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 public class PurchaseOrderDAO {
     public Long createPurchaseOrder(PurchaseOrder purchaseOrderObj) {
@@ -20,13 +22,13 @@ public class PurchaseOrderDAO {
                     + purchaseOrderObj.getMobileNumber() + "','";
 
             stmt.executeUpdate(poInsert);
-            List<orderLine> lines = purchaseOrderObj.getOrderLineList();
-            for (orderLine ol : lines) {
+            List<OrderLine> lines = purchaseOrderObj.getOrderLineList();
+            for (OrderLine ol : lines) {
                 String olInsert = "insert into order_line(price,quantity,item_id,purchase_order_id) values ('"
                         + ol.getPrice() + "','"
                         + ol.getPrice() + "','"
                         + ol.getQuantity() + "','"
-                        + ol.getitem().getId() + "','"
+                        + ol.getItem().getId() + "','"
                         + ol.getPurchaseOrder().getId() + "','";
                 stmt.executeUpdate(olInsert);
 

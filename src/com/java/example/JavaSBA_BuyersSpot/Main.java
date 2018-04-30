@@ -6,19 +6,22 @@ import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 public class Main {
     public static void main(String args[]) throws IOException, ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        ItemDAO iDAO = new IItemDAO();
-        List<Item> items = iDAO.getAllItems();
+        IItemDAO iDAO = new IItemDAO();
+        List<Item> items = null;
+        items = iDAO.getItemById();
         Iterator<Item> itr = items.iterator();
 
         System.out.format("%15s %-25s %-25s %-15s\n", "Item ID", "Name", "Available Quantity", "price");
         while (itr.hasNext()) {
             Item item = itr.next();
-            System.out.format("%15s %-25s %-25s %-15s\n", item.getId(), item.getName(), item.getAvailableQuanityt(), item.getPrice());
+            System.out.format("%15s %-25s %-25s %-15s\n", item.getId(), item.getName(), item.getAvailableQuantity(), item.getPrice());
         }
         System.out.println("Creating new purchase order...");
         System.out.println("Enter Customer Name");
@@ -30,9 +33,9 @@ public class Main {
         Date orderDate = sdf.parse(reader.readLine());
         System.out.println("Enter all the Item ID you want to purchase:");
         String[] ids = reader.readLine().split(",");
-        List<item> itm = new ArrayList<item>();
+        List<Item> itm = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
-            item it = iDAO.getItemById(Integre.valueof(ids[i]));
+            Item it = iDAO.getItemById(Integer.valueOf(ids[i]));
             itm.add(it);
 
         }
@@ -43,7 +46,7 @@ public class Main {
             quantity[i] = Integer.parseInt(quantities[i]);
 
         }
-        PurchaseorderBO purchaseBo = new PurchaseorderBO();
+        PurchaseOrderBO purchaseBo = new PurchaseOrderBO();
         Long id = purchaseBo.createPurchaseOrder(itm, quantity, customerName, mobile, orderDate);
         System.out.println("Order placed with id" + id);
 
