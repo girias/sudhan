@@ -20,7 +20,7 @@ public class PurchaseOrderBO {
         for (int i = 0; i < items.size(); i++) {
             int available = items.get(i).getAvailableQuantity();
             if (available < quantity[i]) {
-                throw new InsufficientQuantityException(("Item" + items.get(i).getName() + " is unavailable"));
+                throw new InsufficientQuantityException(("Item " + items.get(i).getName() + " is unavailable"));
             } else {
 
                 orderLine.add(new OrderLine(0l, items.get(i), purchaseOrder, items.get(i).getPrice(), quantity[i]));
