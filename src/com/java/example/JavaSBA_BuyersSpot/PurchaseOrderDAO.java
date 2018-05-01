@@ -14,11 +14,6 @@ public class PurchaseOrderDAO implements IPurchaseOrderDAO {
             Connection dbconn = DBUtils.getConnection();
             Statement stmt = dbconn.createStatement();
 
-//            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//            Date myDate = formatter.parse(date);
-//            java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
-
-
             String poInsert = "insert into purchase_order(order_date,created_date,number_of_items, total_amount, customer_name, mobile_number) values ('"
                     + new java.sql.Date(purchaseOrderObj.getOrderDate().getTime()) + "','"
                     + new java.sql.Date(purchaseOrderObj.getCreatedDate().getTime()) + "',"
@@ -27,8 +22,14 @@ public class PurchaseOrderDAO implements IPurchaseOrderDAO {
                     + purchaseOrderObj.getCustomerName() + "','"
                     + purchaseOrderObj.getMobileNumber() + "')";
 
-            System.out.println(poInsert);
+//            System.out.println(poInsert);
             stmt.executeUpdate(poInsert);
+
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                id = rs.getLong(1);
+            }
 
             List<OrderLine> lines = purchaseOrderObj.getOrderLineList();
             for (OrderLine ol : lines) {
@@ -36,17 +37,12 @@ public class PurchaseOrderDAO implements IPurchaseOrderDAO {
                         + ol.getPrice() + ","
                         + ol.getQuantity() + ","
                         + ol.getItem().getId() + ","
-                        + ol.getPurchaseOrder().getId() + ")";
-                System.out.println(olInsert);
+                        + id + ")";
+//                System.out.println(olInsert);
                 stmt.executeUpdate(olInsert);
 
             }
-            String sql = "select id from purchase_order:";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                id = rs.getLong("id");
 
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

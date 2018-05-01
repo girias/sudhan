@@ -47,13 +47,13 @@ public class Main {
         }
 
         PurchaseOrderBO purchaseBo = new PurchaseOrderBO();
-        Long id = null;
+        Long id = 0l;
         try {
             id = purchaseBo.createPurchaseOrder(itm, quantity, customerName, mobile, orderDate);
         } catch (InsufficientQuantityException e) {
             e.printStackTrace();
         }
-        System.out.println("Order placed with id" + id);
+        if (id > 0) System.out.println("Order placed with id " + id);
 
     }
 }

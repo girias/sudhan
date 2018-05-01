@@ -17,7 +17,6 @@ public class ItemDAO implements IItemDAO {
             String sql = "select id, name, available_quantity, price from item";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                System.out.println(rs.getString("available_quantity"));
                 Item itm = new Item(rs.getLong("id"), rs.getString("name"), Integer.valueOf(rs.getString("available_quantity")), rs.getDouble("price"));
                 items.add(itm);
             }
