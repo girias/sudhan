@@ -10,7 +10,7 @@ public class DBUtils {
         Connection connection = null;
         try {
 
-            ResourceBundle rb = ResourceBundle.getBundle("com.example.jdbc.mysql");
+            ResourceBundle rb = ResourceBundle.getBundle("com.java.example.JavaSBA_BuyersSpot.mysql");
             String pass = rb.getString("db.password");
             String user = rb.getString("db.username");
             String url = rb.getString("db.url");

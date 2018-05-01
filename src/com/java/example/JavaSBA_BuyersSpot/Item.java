@@ -12,10 +12,10 @@ public class Item {
 
     }
 
-    public Item(Long id, String name, Integer availableQauntity, Double price) {
+    public Item(Long id, String name, Integer available_quantity, Double price) {
         this.id = id;
         this.name = name;
-        this.availableQuantity = availableQuantity;
+        this.availableQuantity = available_quantity;
         this.price = price;
 
     }

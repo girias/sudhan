@@ -14,8 +14,8 @@ public class Main {
     public static void main(String args[]) throws IOException, ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         ItemDAO iDAO = new ItemDAO();
-        List<Item> items = null;
-        items = iDAO.getAllItems();
+        List<Item> items = iDAO.getAllItems();
+//        items = iDAO.getAllItems();
         Iterator<Item> itr = items.iterator();
 
         System.out.format("%15s %-25s %-25s %-15s\n", "Item ID", "Name", "Available Quantity", "price");
