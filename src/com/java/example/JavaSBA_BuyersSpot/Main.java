@@ -13,9 +13,9 @@ import java.util.List;
 public class Main {
     public static void main(String args[]) throws IOException, ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        IItemDAO iDAO = new IItemDAO();
+        ItemDAO iDAO = new ItemDAO();
         List<Item> items = null;
-        items = iDAO.getItemById();
+        items = iDAO.getAllItems();
         Iterator<Item> itr = items.iterator();
 
         System.out.format("%15s %-25s %-25s %-15s\n", "Item ID", "Name", "Available Quantity", "price");
@@ -35,19 +35,24 @@ public class Main {
         String[] ids = reader.readLine().split(",");
         List<Item> itm = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
-            Item it = iDAO.getItemById(Integer.valueOf(ids[i]));
-            itm.add(it);
+            itm.add(iDAO.getItemById(Integer.valueOf(ids[i])));
 
         }
         System.out.println("Enter number of quantities:");
         String[] quantities = reader.readLine().split(",");
         Integer[] quantity = new Integer[quantities.length];
-        for (int i = 0; i < quantities; i++) {
+        for (int i = 0; i < quantities.length; i++) {
             quantity[i] = Integer.parseInt(quantities[i]);
 
         }
+
         PurchaseOrderBO purchaseBo = new PurchaseOrderBO();
-        Long id = purchaseBo.createPurchaseOrder(itm, quantity, customerName, mobile, orderDate);
+        Long id = null;
+        try {
+            id = purchaseBo.createPurchaseOrder(itm, quantity, customerName, mobile, orderDate);
+        } catch (InsufficientQuantityException e) {
+            e.printStackTrace();
+        }
         System.out.println("Order placed with id" + id);
 
     }

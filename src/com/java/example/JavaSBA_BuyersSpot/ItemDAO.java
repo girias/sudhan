@@ -12,9 +12,9 @@ public class ItemDAO implements IItemDAO {
 
     public List<Item> getAllItems() {
         try {
-            Connection dbconn = DBUtils.getConnection();
-            Statement stmt = dbconn.createStatement();
-            String sql = "Select id, name, available_quantity, price from item:";
+            Connection dbCon = DBUtils.getConnection();
+            Statement stmt = dbCon.createStatement();
+            String sql = "select id, name, available_quantity, price from item";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Item itm = new Item(rs.getLong("id"), rs.getString("name"), rs.getInt("available_quantity"), rs.getDouble("price"));
@@ -24,5 +24,20 @@ public class ItemDAO implements IItemDAO {
             e.printStackTrace();
         }
         return items;
+    }
+
+    public Item getItemById(Integer itemId) {
+        try {
+            Connection dbCon = DBUtils.getConnection();
+            Statement stmt = dbCon.createStatement();
+            String sql = "select id, name, available_quantity, price from item where id=" + itemId;
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                return new Item(rs.getLong("id"), rs.getString("name"), rs.getInt("available_quantity"), rs.getDouble("price"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
