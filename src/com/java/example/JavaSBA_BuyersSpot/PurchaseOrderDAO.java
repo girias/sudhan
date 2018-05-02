@@ -41,6 +41,10 @@ public class PurchaseOrderDAO implements IPurchaseOrderDAO {
 //                System.out.println(olInsert);
                 stmt.executeUpdate(olInsert);
 
+                //update
+                String itemQtyUpdate = "update item set available_quantity=" + (ol.getItem().getAvailableQuantity() - ol.getQuantity()) + " where id=" + ol.getItem().getId();
+                stmt.executeUpdate(itemQtyUpdate);
+
             }
 
         } catch (Exception e) {
