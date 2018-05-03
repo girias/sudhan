@@ -16,12 +16,12 @@ public class PaymentReleaserBO extends UserBO {
         return pendInvoices;
     }
 
-    public Integer createInvoice(Invoice invoice) throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public Integer createInvoice(Invoice invoice) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
-    public Boolean updateInvocieStatus(Invoice invoice, String status) throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public Boolean updateInvocieStatus(Invoice invoice, String status) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
     public Boolean invoicePayment(Invoice invoiceObj) {

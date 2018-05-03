@@ -3,8 +3,8 @@ package com.java.example.JavaSBA_InvoiceProcess;
 import java.util.List;
 
 public class ClerkBO extends UserBO {
-    public List<Invoice> listInvoice() throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public List<Invoice> listInvoice() throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
     public Integer createInvoice(Invoice invoice) {
@@ -13,12 +13,12 @@ public class ClerkBO extends UserBO {
         return inv;
     }
 
-    public Boolean updateInvocieStatus(Invoice invoice, String status) throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public Boolean updateInvocieStatus(Invoice invoice, String status) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
-    public Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
 }

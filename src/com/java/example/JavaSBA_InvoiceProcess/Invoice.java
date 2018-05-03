@@ -8,15 +8,6 @@ public class Invoice {
     private String invoiceNumber;
     private String status;
     private Integer amount;
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     private Date createdDate;
     private User createdBy;
 
@@ -80,4 +71,12 @@ public class Invoice {
         this.createdBy = createdBy;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
 }

@@ -140,7 +140,7 @@ public class Main {
             userBo = new ClerkBO();
 
         }
-        if (role.equalsIgnoreCase("payment releaser")) {
+        if (role.equalsIgnoreCase("payment released")) {
             userBo = new PaymentReleaserBO();
         }
         if (role.equalsIgnoreCase("auditor")) {
