@@ -11,9 +11,6 @@ CREATE TABLE 'invoice'
 PRIMARY KEY ('id')
 );
 
-INSERT INTO 'invoice' VALUES
-(1,'INV744','Approved',45000,'2017-05-12',3),(2,'INV112','Paid',12000,'2017-04-01',10)
-
 insert into invoice(customer_name,payment_attempts,total_amount,balance,status)values
 ('Shravan',45000.0,1,30000.00,Pending),
 ('Rafael',5000.0,0,5000.0,Pending),
