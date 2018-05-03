@@ -18,7 +18,7 @@ public class InvoiceDAO {
             String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values (";
 
             stmt.executeQuery(sql1);
-            String sql2 = "Select id from invoice where invoice_number = '" + invoiceObj.getInvoiceNumber() + "':";
+            String sql2 = "Select id from invoice where invoice_number = '" + invoiceObj.getInvoiceNumber() + "'";
             ResultSet rs = stmt.executeQuery(sql2);
 
             while (rs.next()) {
@@ -32,7 +32,7 @@ public class InvoiceDAO {
 
 
     public List<Invoice> getAllInvoiceList() {
-        List<String> invoices = new ArrayList<>();
+        List<Invoice> invoices = new ArrayList<>();
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
@@ -42,14 +42,13 @@ public class InvoiceDAO {
             while (rs1.next()) {
                 ////////////// Verify all the below queries ///////////
 
-                String sql2 = "Select id, username, password, address, role from user where id='" + rs1.getInt("user_id") + "':";
+                String sql2 = "Select id, username, password, address, role from user where id='" + rs1.getInt("user_id") + "'";
                 ResultSet rs2 = stmt.executeQuery(sql2);
-                User u = null;
+                User user = null;
                 while (rs2.next()) {
-                    u = new User(rs2.getInt("id"), rs2.getString("username"), rs2.getString("password"), rs2.getString("address"), rs2.getString("role"));
-
+                    user = new User(rs2.getInt("id"), rs2.getString("username"), rs2.getString("password"), rs2.getString("address"), rs2.getString("role"));
                 }
-                Invoice inv = new Invoice(rs1.getInt("id"), rs1.getString("invoice_number"), rs1.getString("Status"), rs1.getString("amount"), rs1.getDate("created_date"), rs1.get("user_id"));
+                Invoice inv = new Invoice(rs1.getInt("id"), rs1.getString("invoice_number"), rs1.getString("Status"), rs1.getInt("amount"), rs1.getDate("created_date"), user);
                 invoices.add(inv);
             }
 
@@ -64,7 +63,7 @@ public class InvoiceDAO {
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
-            String sql = "Update invoice set status ='" + status + "' where id = '" + invoiceObj.getId() + "':";
+            String sql = "Update invoice set status ='" + status + "' where id = '" + invoiceObj.getId() + "'";
             stmt.executeQuery(sql);
         } catch (Exception e) {
         }
@@ -75,7 +74,7 @@ public class InvoiceDAO {
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
-            String sql = "Update invoice set status ='Paid' where id = '" + invoiceObj.getId() + "':";
+            String sql = "Update invoice set status ='Paid' where id = '" + invoiceObj.getId() + "'";
             stmt.executeQuery(sql);
         } catch (Exception e) {
         }

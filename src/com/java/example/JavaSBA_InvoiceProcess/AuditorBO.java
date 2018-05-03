@@ -16,8 +16,8 @@ public class AuditorBO extends UserBO {
         return paidInvoices;
     }
 
-    public Integer createInvoice(Invoice invoice) throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public Integer createInvoice(Invoice invoice) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
     public Boolean updateInvocieStatus(Invoice invoice, String status) {
@@ -26,8 +26,8 @@ public class AuditorBO extends UserBO {
         return true;
     }
 
-    public Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrevilegeException {
-        throw new InsufficientPrevilegeException();
+    public Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException();
     }
 
 }

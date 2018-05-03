@@ -8,11 +8,11 @@ abstract class UserBO {
     Boolean InvoiceStatus;
     Boolean invoicePayment;
 
-    List<Invoice> listInvoice() throws InsufficientPrevilegeException {
+    List<Invoice> listInvoice() throws InsufficientPrivilegeException {
         return invoices;
     }
 
-    Integer createInvoice(Invoice invoice) throws InsufficientPrevilegeException {
+    Integer createInvoice(Invoice invoice) throws InsufficientPrivilegeException {
         return inv;
     }
 
@@ -20,7 +20,7 @@ abstract class UserBO {
         return InvoiceStatus;
     }
 
-    Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrevilegeException {
+    Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrivilegeException {
         return invoicePayment;
     }
 }
