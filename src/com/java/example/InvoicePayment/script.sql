@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS 'invoice';
 
-CREATE TABLE 'Invoice'
+CREATE TABLE 'invoice'
 (
 'id' int(11) NOT NULL AUTO_INCREMENT,
 'customer_name' varchar(30) DEFAULT NULL,
@@ -11,10 +11,10 @@ CREATE TABLE 'Invoice'
 PRIMARY KEY ('id')
 );
 
-INSERT INTO 'Invoice' VALUES
+INSERT INTO 'invoice' VALUES
 (1,'INV744','Approved',45000,'2017-05-12',3),(2,'INV112','Paid',12000,'2017-04-01',10)
 
-insert into Invoice(customer_name,payment_attempts,total_amount,balance,status)values
+insert into invoice(customer_name,payment_attempts,total_amount,balance,status)values
 ('Shravan',45000.0,1,30000.00,Pending),
 ('Rafael',5000.0,0,5000.0,Pending),
 ('Tori',800.0,1,200.0,Pending),
