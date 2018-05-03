@@ -6,7 +6,7 @@ import java.util.List;
 public class PaymentReleaserBO extends UserBO {
     public List<Invoice> listInvoice() {
         InvoiceDAO invoiceDao = new InvoiceDAO();
-        List<Invoice> invoices = invoiceDao.getAllinvoiceList();
+        List<Invoice> invoices = invoiceDao.getAllInvoiceList();
         List<Invoice> pendInvoices = new ArrayList<Invoice>();
         for (Invoice inv : invoices) {
             if (inv.getStatus().equalsIgnoreCase("Pending")) {

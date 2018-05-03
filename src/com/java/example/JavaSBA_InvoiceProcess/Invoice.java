@@ -1,12 +1,22 @@
 package com.java.example.JavaSBA_InvoiceProcess;
 
 import java.util.Date;
+import java.util.List;
 
 public class Invoice {
     private Integer id;
     private String invoiceNumber;
     private String status;
     private Integer amount;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     private Date createdDate;
     private User createdBy;
 

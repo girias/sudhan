@@ -1,16 +1,21 @@
 package com.java.example.JavaSBA_InvoiceProcess;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InvoiceDAO {
 
     public Integer invoiceCreation(Invoice invoiceObj) {
+        Integer inv = 0;
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
 
             //////////// Incomplete Insert Query /////////////////
-            String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values ("
+            String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values (";
 
             stmt.executeQuery(sql1);
             String sql2 = "Select id from invoice where invoice_number = '" + invoiceObj.getInvoiceNumber() + "':";
@@ -27,7 +32,7 @@ public class InvoiceDAO {
 
 
     public List<Invoice> getAllInvoiceList() {
-        List<String> invoices = new ArrayList<Invoice>();
+        List<String> invoices = new ArrayList<>();
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
@@ -44,7 +49,7 @@ public class InvoiceDAO {
                     u = new User(rs2.getInt("id"), rs2.getString("username"), rs2.getString("password"), rs2.getString("address"), rs2.getString("role"));
 
                 }
-                Invoice inv = new Invoice(rs1.getInt("id"), rs1.getString("invoice_number"), rs1.getString("Status"), rs1.getString("amount"), rs1.getString("created_date"), rs1.getInt("user_id"));
+                Invoice inv = new Invoice(rs1.getInt("id"), rs1.getString("invoice_number"), rs1.getString("Status"), rs1.getString("amount"), rs1.getDate("created_date"), rs1.get("user_id"));
                 invoices.add(inv);
             }
 

@@ -1,6 +1,8 @@
 package com.java.example.JavaSBA_InvoiceProcess;
 
-public class UserBO {
+import java.util.List;
+
+abstract class UserBO {
     List<Invoice> invoices;
     Integer inv;
     Boolean InvoiceStatus;
