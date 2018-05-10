@@ -17,7 +17,7 @@ public class UserDAO {
     public List<User> getAllUser() throws SQLException {
         Connection dbconn = DbConnection.getConnection();
         Statement stmt = dbconn.createStatement();
-        String sql = "Select id,username, password, address , role from user:";
+        String sql = "select id,username,password,address,role from user";
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
             User u = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("address"), rs.getString("role"));

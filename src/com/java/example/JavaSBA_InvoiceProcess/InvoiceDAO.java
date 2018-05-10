@@ -16,11 +16,11 @@ public class InvoiceDAO {
             String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values ('" +
                     invoiceObj.getInvoiceNumber() + "','" +
                     invoiceObj.getStatus() + "'," +
-                    invoiceObj.getAmount() + "," +
-                    invoiceObj.getCreatedDate() + "," +
+                    invoiceObj.getAmount() + ",'" +
+                    invoiceObj.getCreatedDate() + "'," +
                     invoiceObj.getCreatedBy().getId() + ")";
 
-            stmt.executeQuery(sql1);
+            stmt.executeUpdate(sql1);
 //            String sql2 = "Select id from invoice where invoice_number = '" + invoiceObj.getInvoiceNumber() + "'";
 //            ResultSet rs = stmt.executeQuery(sql2);
 //            while (rs.next()) {
@@ -29,10 +29,11 @@ public class InvoiceDAO {
 
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()) {
-                return rs.getInt("id");
+                return rs.getInt(1);
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return 0;
     }

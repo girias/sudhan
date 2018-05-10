@@ -13,7 +13,7 @@ public class Main {
         UserBO userBO;
         String status;
         Boolean logout;
-        Invoice invoice = null;
+        Invoice invoice;
         Integer statusId;
         Integer invoiceId;
         String newLine = "\n";
@@ -66,13 +66,10 @@ public class Main {
 
                                         if (user.getRole().equalsIgnoreCase("Clerk")) {
                                             String[] invoiceInput = invoiceDetails.split(",");
-                                            invoice.setInvoiceNumber(invoiceInput[0]);
-                                            invoice.setAmount(Integer.parseInt(invoiceInput[0]));
-                                            invoice.setCreatedDate(Date.valueOf(invoiceInput[0]));
-                                            invoice.setStatus("Pending");
+                                            Invoice invoice1 = new Invoice(0, invoiceInput[0], "Pending", Integer.valueOf(invoiceInput[1]), Date.valueOf(invoiceInput[2]), user);
 
                                             InvoiceDAO invoiceDAO = new InvoiceDAO();
-                                            if (invoiceDAO.invoiceCreation(invoice) > 0) {
+                                            if (invoiceDAO.invoiceCreation(invoice1) > 0) {
                                                 System.out.println("Invoice created successfully");
                                             }
                                         } else {
