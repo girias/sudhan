@@ -9,25 +9,32 @@ import java.util.List;
 public class InvoiceDAO {
 
     public Integer invoiceCreation(Invoice invoiceObj) {
-        Integer inv = 0;
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
 
-            //////////// Incomplete Insert Query /////////////////
-            String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values (";
+            String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values ('" +
+                    invoiceObj.getInvoiceNumber() + "','" +
+                    invoiceObj.getStatus() + "'," +
+                    invoiceObj.getAmount() + "," +
+                    invoiceObj.getCreatedDate() + "," +
+                    invoiceObj.getCreatedBy().getId() + ")";
 
             stmt.executeQuery(sql1);
-            String sql2 = "Select id from invoice where invoice_number = '" + invoiceObj.getInvoiceNumber() + "'";
-            ResultSet rs = stmt.executeQuery(sql2);
+//            String sql2 = "Select id from invoice where invoice_number = '" + invoiceObj.getInvoiceNumber() + "'";
+//            ResultSet rs = stmt.executeQuery(sql2);
+//            while (rs.next()) {
+//                inv = rs.getInt("id");
+//            }
 
-            while (rs.next()) {
-                inv = rs.getInt("id");
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                return rs.getInt("id");
             }
 
         } catch (Exception e) {
         }
-        return inv;
+        return 0;
     }
 
 
@@ -36,7 +43,7 @@ public class InvoiceDAO {
         try {
             Connection dbconn = DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
-            String sql1 = "Select id, invoice_number, status, amount, created_date, user_id from invoice:";
+            String sql1 = "Select id, invoice_number, status, amount, created_date, user_id from invoice";
             ResultSet rs1 = stmt.executeQuery(sql1);
 
             while (rs1.next()) {

@@ -1,5 +1,6 @@
 package com.java.example.JavaSBA_InvoiceProcess;
 
+import java.sql.SQLException;
 import java.util.List;
 
 abstract class UserBO {
@@ -8,19 +9,28 @@ abstract class UserBO {
     Boolean InvoiceStatus;
     Boolean invoicePayment;
 
-    List<Invoice> listInvoice() throws InsufficientPrivilegeException {
-        return invoices;
+    public static User validateUser(String userName, String password) {
+        UserDAO userDAO = new UserDAO();
+        try {
+            List<User> users = userDAO.getAllUser();
+
+            for (User user : users) {
+                if (user.getUserName().equalsIgnoreCase(userName) && user.getPassword().equals(password)) {
+                    return user;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    Integer createInvoice(Invoice invoice) throws InsufficientPrivilegeException {
-        return inv;
-    }
+    abstract List<Invoice> listInvoice() throws InsufficientPrivilegeException;
 
-    Boolean updateInvoiceStatus(Invoice invoice, String status) {
-        return InvoiceStatus;
-    }
+    abstract Integer createInvoice(Invoice invoice) throws InsufficientPrivilegeException;
 
-    Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrivilegeException {
-        return invoicePayment;
-    }
+    abstract Boolean updateInvoiceStatus(Invoice invoice, String status) throws InsufficientPrivilegeException;
+
+    abstract Boolean invoicePayment(Invoice invoiceObj) throws InsufficientPrivilegeException;
 }

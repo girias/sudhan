@@ -1,8 +1,8 @@
 package com.java.example.JavaSBA_InvoiceProcess;
 
 public class InsufficientPrivilegeException extends Exception {
-    public InsufficientPrivilegeException() {
-        System.out.println("InsufficientPrivilegeException : Permission Denied");
+    public InsufficientPrivilegeException(String message) {
+        System.out.println("InsufficientPrivilegeException :" + message);
         System.exit(1);
     }
 

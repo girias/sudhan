@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentReleaserBO extends UserBO {
+
+    @Override
     public List<Invoice> listInvoice() {
         InvoiceDAO invoiceDao = new InvoiceDAO();
         List<Invoice> invoices = invoiceDao.getAllInvoiceList();
@@ -16,14 +18,17 @@ public class PaymentReleaserBO extends UserBO {
         return pendInvoices;
     }
 
+    @Override
     public Integer createInvoice(Invoice invoice) throws InsufficientPrivilegeException {
-        throw new InsufficientPrivilegeException();
+        throw new InsufficientPrivilegeException("Permission Denied");
     }
 
-    public Boolean updateInvocieStatus(Invoice invoice, String status) throws InsufficientPrivilegeException {
-        throw new InsufficientPrivilegeException();
+    @Override
+    Boolean updateInvoiceStatus(Invoice invoice, String status) throws InsufficientPrivilegeException {
+        throw new InsufficientPrivilegeException("Permission Denied");
     }
 
+    @Override
     public Boolean invoicePayment(Invoice invoiceObj) {
         InvoiceDAO invoiceDao = new InvoiceDAO();
         invoiceDao.invoicePayment(invoiceObj);
