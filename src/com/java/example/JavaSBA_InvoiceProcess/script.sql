@@ -25,6 +25,9 @@ KEY user_id (user_id),
 CONSTRAINT invoice_ibfk_1 FOREIGN KEY (user_id) REFERENCES user (id)
 );
 
-INSERT INTO 'user' VALUES (1,'maddy','Boston', 'Clerk'),(2,'johnsmith','Buffalo','Payment Releaser')
+INSERT INTO user (username, password, address, role) VALUES ('maddy','maddy', 'Boston', 'Clerk');
+INSERT INTO user  (username, password, address, role) VALUES ('johnsmith', 'johnsmith', 'Buffalo','Payment Releaser');
+INSERT INTO user (username, password, address, role) VALUES ('victoria','victoria', 'Boston', 'Auditor');
 
-INSERT INTO 'invoice' VALUES (1,'INV744','Approved',45000,'2017-05-12',3),(2,'INV112','Paid',12000,'2017-04-01',10)
+INSERT INTO invoice (invoice_number, status, amount, created_date) VALUES ('INV744','Approved',45000,'2017-05-12');
+INSERT INTO invoice (invoice_number, status, amount, created_date) VALUES ('INV112','Paid',12000,'2017-04-01');

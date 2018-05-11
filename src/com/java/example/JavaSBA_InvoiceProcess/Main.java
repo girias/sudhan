@@ -100,7 +100,7 @@ public class Main {
                                                             inv.getInvoiceNumber(),
                                                             inv.getAmount(),
                                                             inv.getStatus(),
-                                                            inv.getCreatedBy(),
+                                                            inv.getCreatedBy().getUserName(),
                                                             inv.getCreatedDate());
                                                 }
 
@@ -122,8 +122,10 @@ public class Main {
 
                                                     if (statusId == 1) {
                                                         invoiceDAO.updateInvoiceStatus(statusInv, "Approved");
+                                                        System.out.println("Invoice updated successfully");
                                                     } else if (statusId == 2) {
                                                         invoiceDAO.updateInvoiceStatus(statusInv, "Deny");
+                                                        System.out.println("Invoice updated successfully");
                                                     } else {
                                                         System.out.println("Status Id is invalid");
                                                     }
@@ -153,12 +155,21 @@ public class Main {
                                             //fill the code here
 
                                             for (Invoice inv : invoiceList) {
-                                                System.out.format("%-5s %-15s %-10s %-15s %-15s %s\n", inv.getId(),
-                                                        inv.getInvoiceNumber(),
-                                                        inv.getAmount(),
-                                                        inv.getStatus(),
-                                                        inv.getCreatedBy(),
-                                                        inv.getCreatedDate());
+                                                if (inv.getCreatedBy().getRole().equalsIgnoreCase("Payment Releaser") && !inv.getStatus().equalsIgnoreCase("Approved")) {
+                                                    System.out.format("%-5s %-15s %-10s %-15s %-15s %s\n", inv.getId(),
+                                                            inv.getInvoiceNumber(),
+                                                            inv.getAmount(),
+                                                            inv.getStatus(),
+                                                            inv.getCreatedBy().getUserName(),
+                                                            inv.getCreatedDate());
+                                                } else if (!inv.getCreatedBy().getRole().equalsIgnoreCase("Payment Releaser")) {
+                                                    System.out.format("%-5s %-15s %-10s %-15s %-15s %s\n", inv.getId(),
+                                                            inv.getInvoiceNumber(),
+                                                            inv.getAmount(),
+                                                            inv.getStatus(),
+                                                            inv.getCreatedBy().getUserName(),
+                                                            inv.getCreatedDate());
+                                                }
                                             }
 
                                             System.out.println("Enter the id to Pay::");
