@@ -1,4 +1,8 @@
-package com.java.example.JavaSBA_InvoiceProcess;
+package com.java.example.javaSBA_InvoiceProcess_SBAUpdated;
+
+import com.java.example.JavaSBA_InvoiceProcess.DbConnection;
+import com.java.example.JavaSBA_InvoiceProcess.Invoice;
+import com.java.example.JavaSBA_InvoiceProcess.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,9 +13,9 @@ import java.util.List;
 
 public class InvoiceDAO {
 
-    public Integer invoiceCreation(Invoice invoiceObj) {
+    public Integer invoiceCreation(com.java.example.JavaSBA_InvoiceProcess.Invoice invoiceObj) {
         try {
-            Connection dbconn = DbConnection.getConnection();
+            Connection dbconn = com.java.example.JavaSBA_InvoiceProcess.DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
 
             String sql1 = "INSERT INTO invoice (invoice_number, status, amount, created_date, user_id) values ('" +
@@ -40,10 +44,10 @@ public class InvoiceDAO {
     }
 
 
-    public List<Invoice> getAllInvoiceList() {
-        List<Invoice> invoices = new ArrayList<>();
+    public List<com.java.example.JavaSBA_InvoiceProcess.Invoice> getAllInvoiceList() {
+        List<com.java.example.JavaSBA_InvoiceProcess.Invoice> invoices = new ArrayList<>();
         try {
-            Connection dbconn = DbConnection.getConnection();
+            Connection dbconn = com.java.example.JavaSBA_InvoiceProcess.DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
 
             String sql2 = "Select id, username, password, address, role from user";
@@ -68,7 +72,7 @@ public class InvoiceDAO {
                 Date created = rs1.getDate("created_date");
                 for (User user : users) {
                     if (user.getId().equals(rs1.getInt("user_id"))) {
-                        Invoice inv = new Invoice(id, inv_num, status, amount, created, user);
+                        com.java.example.JavaSBA_InvoiceProcess.Invoice inv = new com.java.example.JavaSBA_InvoiceProcess.Invoice(id, inv_num, status, amount, created, user);
                         invoices.add(inv);
                     }
                 }
@@ -81,9 +85,9 @@ public class InvoiceDAO {
 
     }
 
-    public void updateInvoiceStatus(Invoice invoiceObj, String status) {
+    public void updateInvoiceStatus(com.java.example.JavaSBA_InvoiceProcess.Invoice invoiceObj, String status) {
         try {
-            Connection dbconn = DbConnection.getConnection();
+            Connection dbconn = com.java.example.JavaSBA_InvoiceProcess.DbConnection.getConnection();
             Statement stmt = dbconn.createStatement();
             String sql = "Update invoice set status ='" + status + "' where id = '" + invoiceObj.getId() + "'";
             stmt.executeUpdate(sql);

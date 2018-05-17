@@ -1,4 +1,10 @@
-package com.java.example.JavaSBA_InvoiceProcess;
+package com.java.example.javaSBA_InvoiceProcess_SBAUpdated;
+
+import com.java.example.JavaSBA_InvoiceProcess.AuditorBO;
+import com.java.example.JavaSBA_InvoiceProcess.ClerkBO;
+import com.java.example.JavaSBA_InvoiceProcess.InsufficientPrivilegeException;
+import com.java.example.JavaSBA_InvoiceProcess.Invoice;
+import com.java.example.JavaSBA_InvoiceProcess.InvoiceDAO;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,12 +19,12 @@ public class Main {
         UserBO userBO;
         String status;
         Boolean logout;
-        Invoice invoice;
+        com.java.example.JavaSBA_InvoiceProcess.Invoice invoice;
         Integer statusId;
         Integer invoiceId;
         String newLine = "\n";
         String invoiceDetails;
-        List<Invoice> invoiceList = new ArrayList<Invoice>();
+        List<com.java.example.JavaSBA_InvoiceProcess.Invoice> invoiceList = new ArrayList<com.java.example.JavaSBA_InvoiceProcess.Invoice>();
         StringBuilder mainMenu = new StringBuilder();
         StringBuilder userMenu = new StringBuilder();
         StringBuilder auditorMenu = new StringBuilder();
@@ -66,14 +72,14 @@ public class Main {
 
                                         if (user.getRole().equalsIgnoreCase("Clerk")) {
                                             String[] invoiceInput = invoiceDetails.split(",");
-                                            Invoice invoice1 = new Invoice(0, invoiceInput[0], "Pending", Integer.valueOf(invoiceInput[1]), Date.valueOf(invoiceInput[2]), user);
+                                            com.java.example.JavaSBA_InvoiceProcess.Invoice invoice1 = new com.java.example.JavaSBA_InvoiceProcess.Invoice(0, invoiceInput[0], "Pending", Integer.valueOf(invoiceInput[1]), Date.valueOf(invoiceInput[2]), user);
 
-                                            InvoiceDAO invoiceDAO = new InvoiceDAO();
+                                            com.java.example.JavaSBA_InvoiceProcess.InvoiceDAO invoiceDAO = new com.java.example.JavaSBA_InvoiceProcess.InvoiceDAO();
                                             if (invoiceDAO.invoiceCreation(invoice1) > 0) {
                                                 System.out.println("Invoice created successfully");
                                             }
                                         } else {
-                                            throw new InsufficientPrivilegeException("Permission Denied");
+                                            throw new com.java.example.JavaSBA_InvoiceProcess.InsufficientPrivilegeException("Permission Denied");
                                         }
 
                                     } catch (Exception e) {
@@ -84,7 +90,7 @@ public class Main {
                                     try {
                                         //fill the code
 
-                                        InvoiceDAO invoiceDAO = new InvoiceDAO();
+                                        com.java.example.JavaSBA_InvoiceProcess.InvoiceDAO invoiceDAO = new com.java.example.JavaSBA_InvoiceProcess.InvoiceDAO();
                                         invoiceList = invoiceDAO.getAllInvoiceList();
 
                                         if (user.getRole().equalsIgnoreCase("Auditor")) {
@@ -97,7 +103,7 @@ public class Main {
                                                         "Created on");
                                                 //fill the code here
 
-                                                for (Invoice inv : invoiceList) {
+                                                for (com.java.example.JavaSBA_InvoiceProcess.Invoice inv : invoiceList) {
                                                     System.out.format("%-5s %-15s %-10s %-15s %-15s %s\n", inv.getId(),
                                                             inv.getInvoiceNumber(),
                                                             inv.getAmount(),
@@ -108,10 +114,10 @@ public class Main {
 
                                                 System.out.println("Enter the id to update the status:");
                                                 invoiceId = new Integer(br.readLine());
-                                                Invoice statusInv = null;
+                                                com.java.example.JavaSBA_InvoiceProcess.Invoice statusInv = null;
 
                                                 boolean matched = false;
-                                                for (Invoice inv : invoiceList) {
+                                                for (com.java.example.JavaSBA_InvoiceProcess.Invoice inv : invoiceList) {
                                                     if (invoiceId.equals(inv.getId())) {
                                                         matched = true;
                                                         statusInv = inv;
@@ -143,7 +149,7 @@ public class Main {
                                                         "Created on");
                                                 //fill the code here
 
-                                                for (Invoice inv : invoiceList) {
+                                                for (com.java.example.JavaSBA_InvoiceProcess.Invoice inv : invoiceList) {
                                                     if (inv.getStatus().equalsIgnoreCase("Approved")) {
                                                         System.out.format("%-5s %-15s %-10s %-15s %-15s %s\n", inv.getId(),
                                                                 inv.getInvoiceNumber(),
@@ -156,10 +162,10 @@ public class Main {
 
                                                 System.out.println("Enter the id to update the status:");
                                                 invoiceId = new Integer(br.readLine());
-                                                Invoice statusInv = null;
+                                                com.java.example.JavaSBA_InvoiceProcess.Invoice statusInv = null;
 
                                                 boolean matched = false;
-                                                for (Invoice inv : invoiceList) {
+                                                for (com.java.example.JavaSBA_InvoiceProcess.Invoice inv : invoiceList) {
                                                     if (invoiceId.equals(inv.getId())) {
                                                         matched = true;
                                                         statusInv = inv;
@@ -169,13 +175,13 @@ public class Main {
                                                     System.out.println(auditorMenu.toString());
                                                     System.out.println("Enter the status number:");
                                                     statusId = new Integer(br.readLine());
-                                                    throw new InsufficientPrivilegeException("Permission Denied");
+                                                    throw new com.java.example.JavaSBA_InvoiceProcess.InsufficientPrivilegeException("Permission Denied");
                                                 } else {
                                                     System.out.println("Invoice Id is invalid");
                                                 }
                                             }
                                         } else {
-                                            throw new InsufficientPrivilegeException("Permission Denied");
+                                            throw new com.java.example.JavaSBA_InvoiceProcess.InsufficientPrivilegeException("Permission Denied");
                                         }
 
                                     } catch (Exception e) {
@@ -185,10 +191,10 @@ public class Main {
                                 case 3:
                                     try {
                                         // fill the code here
-                                        InvoiceDAO invoiceDAO = new InvoiceDAO();
-                                        List<Invoice> invoiceListInitial = invoiceDAO.getAllInvoiceList();
+                                        com.java.example.JavaSBA_InvoiceProcess.InvoiceDAO invoiceDAO = new InvoiceDAO();
+                                        List<com.java.example.JavaSBA_InvoiceProcess.Invoice> invoiceListInitial = invoiceDAO.getAllInvoiceList();
 
-                                        for (Invoice invoice1 : invoiceListInitial) {
+                                        for (com.java.example.JavaSBA_InvoiceProcess.Invoice invoice1 : invoiceListInitial) {
                                             if (invoice1.getStatus().equalsIgnoreCase("Approved")) {
                                                 invoiceList.add(invoice1);
                                             }
@@ -201,7 +207,7 @@ public class Main {
                                                     "Created on");
                                             //fill the code here
 
-                                            for (Invoice inv : invoiceList) {
+                                            for (com.java.example.JavaSBA_InvoiceProcess.Invoice inv : invoiceList) {
                                                 if (user.getRole().equalsIgnoreCase("Payment Releaser") && inv.getStatus().equalsIgnoreCase("Approved")) {
                                                     System.out.format("%-5s %-15s %-10s %-15s %-15s %s\n", inv.getId(),
                                                             inv.getInvoiceNumber(),
@@ -222,7 +228,7 @@ public class Main {
                                             System.out.println("Enter the id to Pay::");
                                             invoiceId = new Integer(br.readLine());
 
-                                            Invoice payment = null;
+                                            com.java.example.JavaSBA_InvoiceProcess.Invoice payment = null;
                                             boolean matched = false;
                                             for (Invoice inv : invoiceList) {
                                                 if (invoiceId.equals(inv.getId())) {
