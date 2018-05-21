@@ -13,14 +13,12 @@ public class AppMain {
 
     public static void main(String[] args) throws Exception {
 
-        //fill the code
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         System.out.println("Invoice Details:");
         System.out.format("%-5s %-15s %-20s %-15s %-10s %s\n", "ID", "Customer Name", "Payment Attempts", "Total Amount", "Balance", "Status");
 
-        //fill the code
         List<Invoice> invoices = new ArrayList<Invoice>();
         InvoiceDAO invoiceDAO = new InvoiceDAO();
         Invoice inv = null;
@@ -56,9 +54,6 @@ public class AppMain {
             System.out.println("Enter the card name :");
             String cardName = buff.readLine();
 
-            //fill the code
-            //String accountHolderName, double amount, String cardNumber, String cvv, String cardName
-//			CreditCardPayment ccPayment = new CreditCardPayment(name, amount, cardNo, cvv, cardName);
             try {
                 pay = new CreditCardPayment(name, amount, cardNo, cvv, cardName);
                 amountPaid = pay.calculateTotalAmount();
@@ -70,7 +65,7 @@ public class AppMain {
                     }
                 }
                 balance = inv.getBalance() - amount;
-//				System.out.println(inv.getTotalAmount() + "|" + amount + "|" + balance);
+
                 invoiceDAO.updateInvoiceDetails(id, balance);
                 System.out.println("Total Amount to be paid is " + amountPaid);
                 System.out.println("The balance amount is " + balance);
@@ -95,9 +90,6 @@ public class AppMain {
             System.out.println("Enter the cheque date :");
             Date date = sdf.parse(buff.readLine());
 
-            //fill the code
-            // String accountHolderName, double amount, String bankName, String checkNumber, Date checkDate
-//			ChequePayment cPayment = new ChequePayment(name, amount, bankName, cNo, date);
             try {
                 pay = new ChequePayment(name, amount, bankName, cNo, date);
                 amountPaid = pay.calculateTotalAmount();
@@ -117,7 +109,6 @@ public class AppMain {
             }
         } else {
 
-            //fill the code
             System.out.println("Invalid Input");
 
         }

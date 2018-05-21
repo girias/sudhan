@@ -13,7 +13,7 @@ public class InvoiceDAO {
         // TODO Auto-generated constructor stub
     }
 
-    public List<Invoice> getAllInvoices() throws Exception {
+    public List<Invoice> getAllInvoices() {
         List<Invoice> invoices = new ArrayList<Invoice>();
         try {
             Connection conn = DbConnection.getConnection();
@@ -33,7 +33,7 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public void updateInvoiceDetails(int invoiceId, double balanceAmount) throws Exception {
+    public void updateInvoiceDetails(int invoiceId, double balanceAmount) {
         try {
             Connection conn = DbConnection.getConnection();
             Statement stmt = conn.createStatement();
@@ -48,7 +48,7 @@ public class InvoiceDAO {
             sql = "update invoice set balance=" + balanceAmount + ", payment_attempts=" + (inv.getPaymentAttempts() + 1) + " where id=" + invoiceId;
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

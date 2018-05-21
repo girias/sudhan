@@ -16,7 +16,7 @@ public class ChequePayment extends Payment {
     }
 
     public ChequePayment() {
-        // TODO Auto-generated constructor stub
+
     }
 
     public String getBankName() {
@@ -45,7 +45,7 @@ public class ChequePayment extends Payment {
 
     @Override
     public Double calculateTotalAmount() throws InvalidPaymentException {
-        // TODO Auto-generated method stub
+
         if (!checkNumber.matches("[0-9]+"))
             throw new InvalidPaymentException("Invalid Cheque Details");
 

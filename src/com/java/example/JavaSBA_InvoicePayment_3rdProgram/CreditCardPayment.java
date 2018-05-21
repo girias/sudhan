@@ -14,7 +14,7 @@ public class CreditCardPayment extends Payment {
     }
 
     public CreditCardPayment() {
-        // TODO Auto-generated constructor stub
+
     }
 
     public String getCardNumber() {
@@ -43,8 +43,6 @@ public class CreditCardPayment extends Payment {
 
     @Override
     public Double calculateTotalAmount() throws InvalidPaymentException {
-        // TODO Auto-generated method stub
-
         if (!cardNumber.matches("[0-9]{16}$"))
             throw new InvalidPaymentException("Invalid Card Details");
 

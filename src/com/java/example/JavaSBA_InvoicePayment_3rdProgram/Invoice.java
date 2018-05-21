@@ -10,7 +10,7 @@ public class Invoice {
     private String status;
 
     public Invoice() {
-        // TODO Auto-generated constructor stub
+
     }
 
     public Invoice(int id, String customerName, int paymentAttempts, double totalAmount, double balance,
