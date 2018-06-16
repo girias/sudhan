@@ -12,13 +12,13 @@ PRIMARY KEY ('id')
 );
 
 insert into invoice(customer_name,payment_attempts,total_amount,balance,status)values
-('Shravan',45000.0,1,30000.00,Pending),
-('Rafael',5000.0,0,5000.0,Pending),
-('Tori',800.0,1,200.0,Pending),
-('John',15000.2,0,10000.0,Pending),
-('jack',900.0,0,900.0,Pending),
-('Rosy',1000.0,1,500.0,Pending),
-('Roger',3000.0,2,2000.0,Pending),
-('Steffi',1000.0,1,500.0,Pending),
-('Nadal',2000.0,1,1000.0,Pending),
-('Federer',1000.0,0,1000.0,Pending);
+('Shravan',1,45000.0,30000.00,'Pending'),
+('Rafael',0,5000.0,5000.0,'Pending'),
+('Tori',1,800.0,200.0,'Pending'),
+('John',0,15000.2,10000.0,'Pending'),
+('jack',0,900.0,900.0,'Pending'),
+('Rosy',1,1000.0,500.0,'Pending'),
+('Roger',2,3000.0,2000.0,'Pending'),
+('Steffi',1,1000.0,500.0,'Pending'),
+('Nadal',1,2000.0,1000.0,'Pending'),
+('Federer',0,1000.0,1000.0,'Pending');
