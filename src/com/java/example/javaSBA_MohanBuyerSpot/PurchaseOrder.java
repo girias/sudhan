@@ -5,141 +5,126 @@ import java.util.List;
 
 public class PurchaseOrder {
 
-    private long id;
-    private java.util.Date orderDate;
-    private java.util.Date createdDate;
-    private int numberOfItems;
-    private double totalAmount;
-    private String customerName;
-    private String mobileNumber;
-    private List<OrderLine> orderLineList;
+  private long id;
+  private java.util.Date orderDate;
+  private java.util.Date createdDate;
+  private int numberOfItems;
+  private double totalAmount;
+  private String customerName;
+  private String mobileNumber;
+  private List<OrderLine> orderLineList;
 
-    public PurchaseOrder(long id, Date orderDate, Date createdDate,
+  public PurchaseOrder(
+      long id,
+      Date orderDate,
+      Date createdDate,
+      int numberOfItems,
+      double totalAmount,
+      String customerName,
+      String mobileNumber,
+      List<OrderLine> orderLineList) {
 
-                         int numberOfItems, double totalAmount, String customerName,
+    super();
 
-                         String mobileNumber, List<OrderLine> orderLineList) {
+    this.id = id;
 
-        super();
+    this.orderDate = orderDate;
 
-        this.id = id;
+    this.createdDate = createdDate;
 
-        this.orderDate = orderDate;
+    this.numberOfItems = numberOfItems;
 
-        this.createdDate = createdDate;
+    this.totalAmount = totalAmount;
 
-        this.numberOfItems = numberOfItems;
+    this.customerName = customerName;
 
-        this.totalAmount = totalAmount;
+    this.mobileNumber = mobileNumber;
 
-        this.customerName = customerName;
+    this.orderLineList = orderLineList;
+  }
 
-        this.mobileNumber = mobileNumber;
+  public PurchaseOrder() {
 
-        this.orderLineList = orderLineList;
+    super();
+  }
 
-    }
+  public long getId() {
 
-    public PurchaseOrder() {
+    return id;
+  }
 
-        super();
+  public void setId(long id) {
 
-    }
+    this.id = id;
+  }
 
-    public long getId() {
+  public java.util.Date getOrderDate() {
 
-        return id;
+    return orderDate;
+  }
 
-    }
+  public void setOrderDate(java.util.Date orderDate) {
 
-    public void setId(long id) {
+    this.orderDate = orderDate;
+  }
 
-        this.id = id;
+  public java.util.Date getCreatedDate() {
 
-    }
+    return createdDate;
+  }
 
-    public java.util.Date getOrderDate() {
+  public void setCreatedDate(java.util.Date createdDate) {
 
-        return orderDate;
+    this.createdDate = createdDate;
+  }
 
-    }
+  public int getNumberOfItems() {
 
-    public void setOrderDate(java.util.Date orderDate) {
+    return numberOfItems;
+  }
 
-        this.orderDate = orderDate;
+  public void setNumberOfItems(int numberOfItems) {
 
-    }
+    this.numberOfItems = numberOfItems;
+  }
 
-    public java.util.Date getCreatedDate() {
+  public double getTotalAmount() {
 
-        return createdDate;
+    return totalAmount;
+  }
 
-    }
+  public void setTotalAmount(double totalAmount) {
 
-    public void setCreatedDate(java.util.Date createdDate) {
+    this.totalAmount = totalAmount;
+  }
 
-        this.createdDate = createdDate;
+  public String getCustomerName() {
 
-    }
+    return customerName;
+  }
 
-    public int getNumberOfItems() {
+  public void setCustomerName(String customerName) {
 
-        return numberOfItems;
+    this.customerName = customerName;
+  }
 
-    }
+  public String getMobileNumber() {
 
-    public void setNumberOfItems(int numberOfItems) {
+    return mobileNumber;
+  }
 
-        this.numberOfItems = numberOfItems;
+  public void setMobileNumber(String mobileNumber) {
 
-    }
+    this.mobileNumber = mobileNumber;
+  }
 
-    public double getTotalAmount() {
+  public List<OrderLine> getOrderLineList() {
 
-        return totalAmount;
+    return orderLineList;
+  }
 
-    }
+  public void setOrderLineList(List<OrderLine> orderLineList) {
 
-    public void setTotalAmount(double totalAmount) {
-
-        this.totalAmount = totalAmount;
-
-    }
-
-    public String getCustomerName() {
-
-        return customerName;
-
-    }
-
-    public void setCustomerName(String customerName) {
-
-        this.customerName = customerName;
-
-    }
-
-    public String getMobileNumber() {
-
-        return mobileNumber;
-
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-
-        this.mobileNumber = mobileNumber;
-
-    }
-
-    public List<OrderLine> getOrderLineList() {
-
-        return orderLineList;
-
-    }
-
-    public void setOrderLineList(List<OrderLine> orderLineList) {
-
-        this.orderLineList = orderLineList;
-
-    }
-
+    this.orderLineList = orderLineList;
+  }
 }

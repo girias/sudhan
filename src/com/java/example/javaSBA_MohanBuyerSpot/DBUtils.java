@@ -7,28 +7,24 @@ import java.util.ResourceBundle;
 
 public class DBUtils {
 
-    public static Connection getConnection() throws ClassNotFoundException, SQLException
+  public static Connection getConnection() throws ClassNotFoundException, SQLException {
 
-    {
+    Class.forName("com.mysql.jdbc.Driver");
 
-        Class.forName("com.mysql.jdbc.Driver");
+    Connection conn = null;
 
-        Connection conn = null;
+    ResourceBundle rb = ResourceBundle.getBundle("com.java.example.javaSBA_MohanBuyerSpot.mysql");
 
-        ResourceBundle rb = ResourceBundle.getBundle("com.java.example.javaSBA_MohanBuyerSpot.mysql");
+    String strURL = rb.getString("db.url");
 
-        String strURL = rb.getString("db.url");
+    String strUsername = rb.getString("db.username");
 
-        String strUsername = rb.getString("db.username");
+    String strpassword = rb.getString("db.password");
 
-        String strpassword = rb.getString("db.password");
+    // conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/buyer_spot_DB", "root", "");
 
-// conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/buyer_spot_DB", "root", "");
+    conn = DriverManager.getConnection(strURL, strUsername, strpassword);
 
-        conn = DriverManager.getConnection(strURL, strUsername, strpassword);
-
-        return conn;
-
-    }
-
+    return conn;
+  }
 }

@@ -1,43 +1,41 @@
 package com.java.example.encapsulation2;
 
 public class User {
-    private String name;
-    private String state;
-    private String country;
+  private String name;
+  private String state;
+  private String country;
 
-    public User(String name, String state, String country) {
-        this.name = name;
-        this.state = state;
-        this.country = country;
-    }
+  public User(String name, String state, String country) {
+    this.name = name;
+    this.state = state;
+    this.country = country;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getState() {
-        return state;
-    }
+  public String getState() {
+    return state;
+  }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+  public void setState(String state) {
+    this.state = state;
+  }
 
-    public String getCountry() {
-        return country;
-    }
+  public String getCountry() {
+    return country;
+  }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
-    public String toString() {
-        return String.format("%-15s %-15s %-15s", getName(), getState(), getCountry());
-    }
+  public String toString() {
+    return String.format("%-15s %-15s %-15s", getName(), getState(), getCountry());
+  }
 }
-
-

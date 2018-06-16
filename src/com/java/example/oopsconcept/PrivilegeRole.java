@@ -2,27 +2,27 @@ package com.java.example.oopsconcept;
 
 public class PrivilegeRole {
 
-    private Role role;
-    private Privilege privilege;
+  private Role role;
+  private Privilege privilege;
 
-    public PrivilegeRole(Role role, Privilege privilege) {
-        this.role = role;
-        this.privilege = privilege;
-    }
+  public PrivilegeRole(Role role, Privilege privilege) {
+    this.role = role;
+    this.privilege = privilege;
+  }
 
-    public Role getRole() {
-        return role;
-    }
+  public Role getRole() {
+    return role;
+  }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+  public void setRole(Role role) {
+    this.role = role;
+  }
 
-    public Privilege getPrivilege() {
-        return privilege;
-    }
+  public Privilege getPrivilege() {
+    return privilege;
+  }
 
-    public void setPrivilege(Privilege privilege) {
-        this.privilege = privilege;
-    }
+  public void setPrivilege(Privilege privilege) {
+    this.privilege = privilege;
+  }
 }

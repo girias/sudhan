@@ -4,6 +4,5 @@ import java.util.List;
 
 public interface IITemDAO {
 
-    List<Item> getAllItems();
-
+  List<Item> getAllItems();
 }

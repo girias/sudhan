@@ -2,76 +2,66 @@ package com.java.example.javaSBA_MohanBuyerSpot;
 
 public class Item {
 
-    private long id;
-    private String name;
-    private int availableQuantity;
-    private double price;
+  private long id;
+  private String name;
+  private int availableQuantity;
+  private double price;
 
-    public Item(long id, String name, int availableQuantity, double price) {
+  public Item(long id, String name, int availableQuantity, double price) {
 
-        super();
+    super();
 
-        this.id = id;
+    this.id = id;
 
-        this.name = name;
+    this.name = name;
 
-        this.availableQuantity = availableQuantity;
+    this.availableQuantity = availableQuantity;
 
-        this.price = price;
+    this.price = price;
+  }
 
-    }
+  public Item() {
 
-    public Item() {
+    super();
+  }
 
-        super();
+  public long getId() {
 
-    }
+    return id;
+  }
 
-    public long getId() {
+  public void setId(long id) {
 
-        return id;
+    this.id = id;
+  }
 
-    }
+  public String getName() {
 
-    public void setId(long id) {
+    return name;
+  }
 
-        this.id = id;
+  public void setName(String name) {
 
-    }
+    this.name = name;
+  }
 
-    public String getName() {
+  public int getAvailableQuantity() {
 
-        return name;
+    return availableQuantity;
+  }
 
-    }
+  public void setAvailableQuantity(int availableQuantity) {
 
-    public void setName(String name) {
+    this.availableQuantity = availableQuantity;
+  }
 
-        this.name = name;
+  public double getPrice() {
 
-    }
+    return price;
+  }
 
-    public int getAvailableQuantity() {
+  public void setPrice(double price) {
 
-        return availableQuantity;
-
-    }
-
-    public void setAvailableQuantity(int availableQuantity) {
-
-        this.availableQuantity = availableQuantity;
-
-    }
-
-    public double getPrice() {
-
-        return price;
-
-    }
-
-    public void setPrice(double price) {
-
-        this.price = price;
-
-    }
+    this.price = price;
+  }
 }

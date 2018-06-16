@@ -4,38 +4,37 @@ import java.util.Date;
 
 public class Cheque {
 
-    String bankName;
-    String chequeNumber;
-    Date chequeDate;
+  String bankName;
+  String chequeNumber;
+  Date chequeDate;
 
-    public String getBankName() {
-        return bankName;
-    }
+  public Cheque(String bankName, String chequeNumber, Date chequeDate) {
+    this.bankName = bankName;
+    this.chequeNumber = chequeNumber;
+    this.chequeDate = chequeDate;
+  }
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
+  public String getBankName() {
+    return bankName;
+  }
 
-    public String getChequeNumber() {
-        return chequeNumber;
-    }
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
+  }
 
-    public void setChequeNumber(String chequeNumber) {
-        this.chequeNumber = chequeNumber;
-    }
+  public String getChequeNumber() {
+    return chequeNumber;
+  }
 
-    public Date getChequeDate() {
-        return chequeDate;
-    }
+  public void setChequeNumber(String chequeNumber) {
+    this.chequeNumber = chequeNumber;
+  }
 
-    public void setChequeDate(Date chequeDate) {
-        this.chequeDate = chequeDate;
-    }
+  public Date getChequeDate() {
+    return chequeDate;
+  }
 
-    public Cheque(String bankName, String chequeNumber, Date chequeDate) {
-        this.bankName = bankName;
-        this.chequeNumber = chequeNumber;
-        this.chequeDate = chequeDate;
-    }
-
+  public void setChequeDate(Date chequeDate) {
+    this.chequeDate = chequeDate;
+  }
 }

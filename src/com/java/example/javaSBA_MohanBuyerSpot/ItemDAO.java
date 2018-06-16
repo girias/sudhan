@@ -9,104 +9,100 @@ import java.util.List;
 
 public class ItemDAO implements IITemDAO {
 
-    @Override
+  @Override
+  public List<Item> getAllItems() {
 
-    public List<Item> getAllItems() {
+    // TODO Auto-generated method stub
 
-// TODO Auto-generated method stub
+    // return null;
 
-//return null;
+    Connection conn;
 
-        Connection conn;
+    List<Item> itemList = new ArrayList<Item>();
 
-        List<Item> itemList = new ArrayList<Item>();
+    try {
 
-        try {
+      conn = DBUtils.getConnection();
 
-            conn = DBUtils.getConnection();
+      Statement stmt = conn.createStatement();
 
-            Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery("select * from item");
 
-            ResultSet rs = stmt.executeQuery("select * from item");
+      while (rs.next()) {
 
-            while (rs.next())
+        itemList.add(
+            new Item(
+                Long.parseLong(rs.getString("id")),
+                rs.getString("name"),
+                Integer.parseInt(rs.getString("available_quantity")),
+                Double.parseDouble(rs.getString("price"))));
+      }
 
-            {
+      stmt.close();
 
-                itemList.add(new Item(Long.parseLong(rs.getString("id")), rs.getString("name"), Integer.parseInt(rs.getString("available_quantity")), Double.parseDouble(rs.getString("price"))));
+      conn.close();
 
-            }
+      return itemList;
 
-            stmt.close();
+    } catch (ClassNotFoundException e) {
 
-            conn.close();
+      // TODO Auto-generated catch block
 
-            return itemList;
+      e.printStackTrace();
 
-        } catch (ClassNotFoundException e) {
+    } catch (SQLException e) {
 
-// TODO Auto-generated catch block
+      // TODO Auto-generated catch block
 
-            e.printStackTrace();
-
-        } catch (SQLException e) {
-
-// TODO Auto-generated catch block
-
-            e.printStackTrace();
-
-        }
-
-        return null;
-
+      e.printStackTrace();
     }
 
-    public Item getItemById(long itemId)
+    return null;
+  }
 
-    {
+  public Item getItemById(long itemId) {
 
-        Connection conn;
+    Connection conn;
 
-        Item item = null;
+    Item item = null;
 
-        try {
+    try {
 
-            conn = DBUtils.getConnection();
+      conn = DBUtils.getConnection();
 
-            Statement stmt = conn.createStatement();
+      Statement stmt = conn.createStatement();
 
-            ResultSet rs = stmt.executeQuery("select * from item where id='" + itemId + "'");
+      ResultSet rs = stmt.executeQuery("select * from item where id='" + itemId + "'");
 
-            while (rs.next())
+      while (rs.next()) {
 
-            {
+        item =
+            new Item(
+                Long.parseLong(rs.getString("id")),
+                rs.getString("name"),
+                Integer.parseInt(rs.getString("available_quantity")),
+                Double.parseDouble(rs.getString("price")));
+      }
 
-                item = new Item(Long.parseLong(rs.getString("id")), rs.getString("name"), Integer.parseInt(rs.getString("available_quantity")), Double.parseDouble(rs.getString("price")));
+      stmt.close();
 
-            }
+      conn.close();
 
-            stmt.close();
+      return item;
 
-            conn.close();
+    } catch (ClassNotFoundException e) {
 
-            return item;
+      // TODO Auto-generated catch block
 
-        } catch (ClassNotFoundException e) {
+      e.printStackTrace();
 
-// TODO Auto-generated catch block
+    } catch (SQLException e) {
 
-            e.printStackTrace();
+      // TODO Auto-generated catch block
 
-        } catch (SQLException e) {
-
-// TODO Auto-generated catch block
-
-            e.printStackTrace();
-
-        }
-
-        return null;
-
+      e.printStackTrace();
     }
 
+    return null;
+  }
 }

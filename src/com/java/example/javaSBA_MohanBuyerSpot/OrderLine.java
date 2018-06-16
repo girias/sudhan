@@ -2,94 +2,79 @@ package com.java.example.javaSBA_MohanBuyerSpot;
 
 public class OrderLine {
 
-//id,item,purchaseOrder,price,quantity
+  // id,item,purchaseOrder,price,quantity
 
-    private long id;
-    private Item item;
-    private PurchaseOrder purchaseOrder;
-    private double price;
-    private int quantity;
+  private long id;
+  private Item item;
+  private PurchaseOrder purchaseOrder;
+  private double price;
+  private int quantity;
 
-    public OrderLine() {
+  public OrderLine() {
 
-        super();
+    super();
+  }
 
-    }
+  public OrderLine(long id, Item item, double price, int quantity) {
 
-    public OrderLine(long id, Item item, double price,
+    super();
 
-                     int quantity) {
+    this.id = id;
 
-        super();
+    this.item = item;
 
-        this.id = id;
+    this.price = price;
 
-        this.item = item;
+    this.quantity = quantity;
+  }
 
-        this.price = price;
+  public long getId() {
 
-        this.quantity = quantity;
+    return id;
+  }
 
-    }
+  public void setId(long id) {
 
-    public long getId() {
+    this.id = id;
+  }
 
-        return id;
+  public Item getItem() {
 
-    }
+    return item;
+  }
 
-    public void setId(long id) {
+  public void setItem(Item item) {
 
-        this.id = id;
+    this.item = item;
+  }
 
-    }
+  public PurchaseOrder getPurchaseOrder() {
 
-    public Item getItem() {
+    return purchaseOrder;
+  }
 
-        return item;
+  public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
 
-    }
+    this.purchaseOrder = purchaseOrder;
+  }
 
-    public void setItem(Item item) {
+  public double getPrice() {
 
-        this.item = item;
+    return price;
+  }
 
-    }
+  public void setPrice(double price) {
 
-    public PurchaseOrder getPurchaseOrder() {
+    this.price = price;
+  }
 
-        return purchaseOrder;
+  public int getQuantity() {
 
-    }
+    return quantity;
+  }
 
-    public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
+  public void setQuantity(int quantity) {
 
-        this.purchaseOrder = purchaseOrder;
-
-    }
-
-    public double getPrice() {
-
-        return price;
-
-    }
-
-    public void setPrice(double price) {
-
-        this.price = price;
-
-    }
-
-    public int getQuantity() {
-
-        return quantity;
-
-    }
-
-    public void setQuantity(int quantity) {
-
-        this.quantity = quantity;
-
-    }
-
+    this.quantity = quantity;
+  }
 }

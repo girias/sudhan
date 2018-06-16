@@ -4,142 +4,114 @@ import java.util.Date;
 import java.util.List;
 
 public class PurchaseOrder {
-    private Long id;
-    private Date orderDate;
-    private Date createdDate;
-    private Integer numberOfItems;
-    private Double totalAmount;
-    private String customerName;
-    private String mobileNumber;
-    private List<OrderLine> orderLineList;
+  private Long id;
+  private Date orderDate;
+  private Date createdDate;
+  private Integer numberOfItems;
+  private Double totalAmount;
+  private String customerName;
+  private String mobileNumber;
+  private List<OrderLine> orderLineList;
 
-    public PurchaseOrder() {
-        super();
-    }
+  public PurchaseOrder() {
+    super();
+  }
 
-    public PurchaseOrder(Date orderDate, Date createdDate, Integer numberOfItems, Double totalAmount, String customerName, String mobileNumber, List<OrderLine> orderLineList) {
-        super();
-        this.orderDate = orderDate;
-        this.createdDate = createdDate;
-        this.numberOfItems = numberOfItems;
-        this.totalAmount = totalAmount;
-        this.customerName = customerName;
-        this.mobileNumber = mobileNumber;
-        this.orderLineList = orderLineList;
+  public PurchaseOrder(
+      Date orderDate,
+      Date createdDate,
+      Integer numberOfItems,
+      Double totalAmount,
+      String customerName,
+      String mobileNumber,
+      List<OrderLine> orderLineList) {
+    super();
+    this.orderDate = orderDate;
+    this.createdDate = createdDate;
+    this.numberOfItems = numberOfItems;
+    this.totalAmount = totalAmount;
+    this.customerName = customerName;
+    this.mobileNumber = mobileNumber;
+    this.orderLineList = orderLineList;
+  }
 
+  /** @return the id */
+  public Long getId() {
+    return id;
+  }
 
-    }
+  /** @param id the id to set */
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
+  /** @return the orderDate */
+  public Date getOrderDate() {
+    return orderDate;
+  }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+  /** @param orderDate the orderDate to set */
+  public void setOrderDate(Date orderDate) {
+    this.orderDate = orderDate;
+  }
 
-    /**
-     * @return the orderDate
-     */
-    public Date getOrderDate() {
-        return orderDate;
-    }
+  /** @return the createdDate */
+  public Date getCreatedDate() {
+    return createdDate;
+  }
 
-    /**
-     * @param orderDate the orderDate to set
-     */
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
+  /** @param createdDate the createdDate to set */
+  public void setCreatedDate(Date createdDate) {
+    this.createdDate = createdDate;
+  }
 
-    /**
-     * @return the createdDate
-     */
-    public Date getCreatedDate() {
-        return createdDate;
-    }
+  /** @return the numberOfItems */
+  public Integer getNumberOfItems() {
+    return numberOfItems;
+  }
 
-    /**
-     * @param createdDate the createdDate to set
-     */
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
+  /** @param numberOfItems the numberOfItems to set */
+  public void setNumberOfItems(Integer numberOfItems) {
+    this.numberOfItems = numberOfItems;
+  }
 
-    /**
-     * @return the numberOfItems
-     */
-    public Integer getNumberOfItems() {
-        return numberOfItems;
-    }
+  /** @return the totalAmount */
+  public Double getTotalAmount() {
+    return totalAmount;
+  }
 
-    /**
-     * @param numberOfItems the numberOfItems to set
-     */
-    public void setNumberOfItems(Integer numberOfItems) {
-        this.numberOfItems = numberOfItems;
-    }
+  /** @param totalAmount the totalAmount to set */
+  public void setTotalAmount(Double totalAmount) {
+    this.totalAmount = totalAmount;
+  }
 
-    /**
-     * @return the totalAmount
-     */
-    public Double getTotalAmount() {
-        return totalAmount;
-    }
+  /** @return the customerName */
+  public String getCustomerName() {
+    return customerName;
+  }
 
-    /**
-     * @param totalAmount the totalAmount to set
-     */
-    public void setTotalAmount(Double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+  /** @param customerName the customerName to set */
+  public void setCustomerName(String customerName) {
+    this.customerName = customerName;
+  }
 
-    /**
-     * @return the customerName
-     */
-    public String getCustomerName() {
-        return customerName;
-    }
+  /** @return the mobileNumber */
+  public String getMobileNumber() {
+    return mobileNumber;
+  }
 
-    /**
-     * @param customerName the customerName to set
-     */
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+  /** @param mobileNumber the mobileNumber to set */
+  public void setMobileNumber(String mobileNumber) {
+    this.mobileNumber = mobileNumber;
+  }
 
-    /**
-     * @return the mobileNumber
-     */
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
+  /** @return the orderLineList */
+  public List<OrderLine> getOrderLineList() {
+    return orderLineList;
+  }
 
-    /**
-     * @param mobileNumber the mobileNumber to set
-     */
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    /**
-     * @return the orderLineList
-     */
-    public List<OrderLine> getOrderLineList() {
-        return orderLineList;
-    }
-
-    /**
-     * @param orderLineList the orderLineList to set
-     */
-    public void setOrderLineList(List<OrderLine> orderLineList) {
-        this.orderLineList = orderLineList;
-    }
-
+  /** @param orderLineList the orderLineList to set */
+  public void setOrderLineList(List<OrderLine> orderLineList) {
+    this.orderLineList = orderLineList;
+  }
 }

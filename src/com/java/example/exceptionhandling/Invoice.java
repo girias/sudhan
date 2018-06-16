@@ -1,37 +1,37 @@
 package com.java.example.exceptionhandling;
 
 public class Invoice {
-    String invoiceNumber;
-    String totalAmount;
-    Integer attempt;
+  String invoiceNumber;
+  String totalAmount;
+  Integer attempt;
 
-    public String getInvoiceNumber() {
-        return invoiceNumber;
-    }
+  public Invoice(String invoiceNumber, String totalAmount, Integer attempt) {
+    this.invoiceNumber = invoiceNumber;
+    this.totalAmount = totalAmount;
+    this.attempt = attempt;
+  }
 
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
-    }
+  public String getInvoiceNumber() {
+    return invoiceNumber;
+  }
 
-    public String getTotalAmount() {
-        return totalAmount;
-    }
+  public void setInvoiceNumber(String invoiceNumber) {
+    this.invoiceNumber = invoiceNumber;
+  }
 
-    public void setTotalAmount(String totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+  public String getTotalAmount() {
+    return totalAmount;
+  }
 
-    public Integer getAttempt() {
-        return attempt;
-    }
+  public void setTotalAmount(String totalAmount) {
+    this.totalAmount = totalAmount;
+  }
 
-    public void setAttempt(Integer attempt) {
-        this.attempt = attempt;
-    }
+  public Integer getAttempt() {
+    return attempt;
+  }
 
-    public Invoice(String invoiceNumber, String totalAmount, Integer attempt) {
-        this.invoiceNumber = invoiceNumber;
-        this.totalAmount = totalAmount;
-        this.attempt = attempt;
-    }
+  public void setAttempt(Integer attempt) {
+    this.attempt = attempt;
+  }
 }

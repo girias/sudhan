@@ -2,14 +2,11 @@ package com.java.example.javaSBA_MohanBuyerSpot;
 
 public class PurchaseDAO implements IPurchaseOrderDAO {
 
-    @Override
+  @Override
+  public long createPurchaseOrder(PurchaseOrder purchaseOrder) {
 
-    public long createPurchaseOrder(PurchaseOrder purchaseOrder) {
+    // TODO Auto-generated method stub
 
-// TODO Auto-generated method stub
-
-        return 0;
-
-    }
-
+    return 0;
+  }
 }

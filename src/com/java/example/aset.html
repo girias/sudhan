@@ -7,7 +7,8 @@
 				    margin : -8px -8px 0;
 				    background-color: lightgrey;
 				 }
-		</style>
+
+    </style>
 
     <script>
         function calculate(start,end)
@@ -29,6 +30,7 @@
             }
                 document.getElementById("output").value = primes;
         }
+
 
     </script>
 </head>
@@ -70,17 +72,19 @@
             <td>End range id</td>
             <td><input type="text" id="end_id"></td>
         </tr>
-    <tr>
-        <td></td>
-    <td><button id="calculate" onclick="calculate()">Calculate</button></td>
-    </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button id="calculate" onclick="calculate()">Calculate</button>
+            </td>
+        </tr>
         <tr></tr>
         <tr></tr>
         <tr></tr>
         <tr></tr>
         <tr>
             <td>6th Asset id details<br>in that given range are :</td>
-           <td><textarea value=""></textarea></td>
+            <td><textarea value=""></textarea></td>
             <output id="output"></output>
         </tr>
 

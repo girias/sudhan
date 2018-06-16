@@ -1,79 +1,58 @@
 package com.java.example.JavaSBA_BuyersSpot;
 
-
 public class Item {
 
-    private Long id;
-    private String name;
-    private Integer availableQuantity;
-    private Double price;
+  private Long id;
+  private String name;
+  private Integer availableQuantity;
+  private Double price;
 
-    public Item() {
+  public Item() {}
 
-    }
+  public Item(Long id, String name, Integer available_quantity, Double price) {
+    this.id = id;
+    this.name = name;
+    this.availableQuantity = available_quantity;
+    this.price = price;
+  }
 
-    public Item(Long id, String name, Integer available_quantity, Double price) {
-        this.id = id;
-        this.name = name;
-        this.availableQuantity = available_quantity;
-        this.price = price;
+  /** @return the id */
+  public Long getId() {
+    return id;
+  }
 
-    }
+  /** @param id the id to set */
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
+  /** @return the name */
+  public String getName() {
+    return name;
+  }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+  /** @param name the name to set */
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+  /** @return the availableQuantity */
+  public Integer getAvailableQuantity() {
+    return availableQuantity;
+  }
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+  /** @param availableQuantity the availableQuantity to set */
+  public void setAvailableQuantity(Integer availableQuantity) {
+    this.availableQuantity = availableQuantity;
+  }
 
-    /**
-     * @return the availableQuantity
-     */
-    public Integer getAvailableQuantity() {
-        return availableQuantity;
-    }
+  /** @return the price */
+  public Double getPrice() {
+    return price;
+  }
 
-    /**
-     * @param availableQuantity the availableQuantity to set
-     */
-    public void setAvailableQuantity(Integer availableQuantity) {
-        this.availableQuantity = availableQuantity;
-    }
-
-    /**
-     * @return the price
-     */
-    public Double getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+  /** @param price the price to set */
+  public void setPrice(Double price) {
+    this.price = price;
+  }
 }
-

@@ -2,59 +2,58 @@ package com.java.example.javaSBA_InvoiceProcess_SBAUpdated;
 
 public class User {
 
-    private Integer id;
-    private String userName;
-    private String password;
-    private String address;
-    private String role;
+  private Integer id;
+  private String userName;
+  private String password;
+  private String address;
+  private String role;
 
-    public User(Integer id, String userName, String password, String address, String role) {
-        super();
-        this.id = id;
-        this.userName = userName;
-        this.password = password;
-        this.address = address;
-        this.role = role;
-    }
+  public User(Integer id, String userName, String password, String address, String role) {
+    super();
+    this.id = id;
+    this.userName = userName;
+    this.password = password;
+    this.address = address;
+    this.role = role;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public String getUserName() {
-        return userName;
-    }
+  public String getUserName() {
+    return userName;
+  }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-    public String getRole() {
-        return role;
-    }
+  public String getRole() {
+    return role;
+  }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
+  public void setRole(String role) {
+    this.role = role;
+  }
 }
